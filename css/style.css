@@ -5,6 +5,7 @@
 }
 
 html, body {
+	touch-action:none;
 	margin: 0; 
 	height: 100%; 
 	overflow-y: hidden;
