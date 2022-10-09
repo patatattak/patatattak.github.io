@@ -1,0 +1,300 @@
+html, body {
+	margin: 0; 
+	height: 100%; 
+	overflow: hidden;
+	padding: 0;
+	background-color: red;
+	font-family: Tahoma, sans-serif;
+	user-select: none;
+}
+
+.container{
+	width: 100vw;
+	height: 100vh;
+	background-color: blue;
+}
+
+#topMenu{
+	width: 100%;
+	height: 7%;
+	background-color: beige;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#logo{
+	height: 95%;
+	padding-left: 1vw;
+}
+
+
+#backButton{
+	background-color: lime;
+	padding-right: 1vw;
+	padding-left: 1vw;
+	height:100%;
+	display: flex;
+	align-items: center;
+}
+
+#backButton:hover{
+	background-color: green;
+	cursor: pointer;
+}
+
+#middleZone{
+	height: 85%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background-color: yellow;
+}
+
+
+#mapZone{
+	width: 100%;
+	height: 100%;
+	background-color: #B5DDFC;
+	transition: all 0.3s;
+}
+
+#mapZone.minimized{
+	width: 50%;
+}
+
+#closeBurgerDiv{
+	position: absolute;	
+	top: 16vh;
+	left: 12vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width:10vh;
+	height:10vh;
+}
+
+#closeHamburger{
+	width: 8vh;
+	fill: rgba(255, 255, 255, 0);  
+	transition: all 0.2s ease-in;
+}
+
+#closeHamburger.visible{
+	fill: rgba(255, 255, 255, 0.7);
+}
+
+#closeHamburger.visible:hover{
+	width: 10vh;
+	fill: rgba(255, 255, 255, 1);
+	cursor: pointer;
+}
+
+#countryName{
+	background-color: black;
+	width: 100%;
+	height: 7%;  
+	font: sans-serif;
+	font-size: 4vh;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#mapImage{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 93%;
+}
+
+#svgMap{  
+	width: 100%;
+	max-height: 100%; 
+}
+
+.land{
+	fill: white;
+	stroke: gray;
+	stroke-width: 0.2px;
+	transition: all 0.2s ease-out;
+}
+.land.over{
+	fill: lightGray;
+	stroke-width: 0.5px;
+}
+.land.student{
+	fill: yellow;
+}
+.land.student.over{
+	fill: orange;	
+	cursor: pointer;
+}
+.land.unselectable{
+	fill: rgba(100, 100, 100, 0.5);
+	stroke: gray;
+	stroke-width: 0.1px;
+}
+.land.student.selected{
+	fill: green;
+	stroke-width: 0.5px;
+}
+
+#avatarsOnCountry{
+	position: absolute;
+	width: 50vw;
+	height : 0vh;
+	display: flex;
+	top: 100vh;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+	opacity: 0;
+	transition: all 0.6s 0.5s;
+}
+
+#avatarsOnCountry.visible{
+	top: 25vh;
+	height: 50vh;
+	opacity:1;
+}
+
+
+.countryAvatarZone{
+	pointer-events:auto;
+	cursor: pointer;
+	display: flex; 
+	align-items: center;
+	justify-content: center;
+	width: 7vh;  
+	height: 8vh;	
+}
+
+.countryAvatarZone img{  
+	width: 0vh;
+	border-radius: 50%;
+	transition: 0.2s all;
+}
+
+.countryAvatarZone.visible img{  
+	width: 5vh;
+}
+
+.countryAvatarZone img.over{
+	width: 7vh;
+}
+
+
+#infosZone{
+	position:absolute;
+	left: 100vw;
+	width: 0%;
+	height: 85%;
+	background-color: cyan;
+	transition: all 0.3s;
+}
+
+#infosZone.visible{
+	left: 50vw;
+	width: 50%;
+}
+
+#identityDiv{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width:96%;
+	height:20%;
+	margin:2%;
+	background-color: white;
+	border-radius:2vh;
+}
+
+#photoImg{
+	max-height: 100%;
+	border-radius: 15%;
+	transform: rotate(-10deg);
+}
+
+#identityInfosDiv{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: start;
+	width:70%;
+	margin: 2%;
+	font-size: 3vh;
+}
+
+#countryDiv{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#country{
+	margin-left:1vh;
+}
+
+#flagImg{
+	max-height: 2.5vh;
+	border-radius:10%;
+}
+
+#nameDiv{
+	font-weight: bold;
+}
+
+#nameDiv span{
+}
+
+#instrumentDiv{
+	font-style: italic;
+}
+
+#descriptionDiv{
+	width:96%;
+	height: fit-content;
+	margin:2%;
+	background-color: white;
+	border-radius:2vh;
+}
+
+#description{
+	padding: 2%;
+	font-size: 2vh;
+	
+}
+
+#botMenu{
+	width: 100%;
+	height: 8%;
+	background-color: purple;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.avatarZone{
+	cursor: pointer;
+	display: flex; 
+	align-items: center;
+	justify-content: center;
+	width: 7vh;  
+	height: 8vh;	
+}
+
+.avatarZone img{  
+	width: 5vh;
+	border-radius: 50%;
+	transition: 0.2s all;
+}
+
+.avatarZone img.over{
+	width: 7vh;
+}
+

@@ -1,0 +1,383 @@
+:root {
+  --topMenuHeight: 7vh;
+  --middleZoneHeight: 85vh;
+  --botMenuHeight: 8vh;
+}
+
+html, body {
+	margin: 0; 
+	height: 100%; 
+	overflow: hidden;
+	padding: 0;
+	background-color: red;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 400;
+	user-select: none;
+}
+
+.container{
+	width: 100vw;
+	height: 100vh;
+	background-color: blue;
+}
+
+
+#topMenu{
+	width: 100vw;
+	height: var(--topMenuHeight);
+	background-color: beige;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#logo{
+	height: 95%;
+	padding-left: 1vw;
+}
+
+
+#backButton{
+	background-color: black;
+	padding-right: 1vw;
+	padding-left: 1vw;
+	height:100%;
+	display: flex;
+	align-items: center;
+	color: beige;
+}
+
+#backButton:hover{
+	background-color: green;
+	cursor: pointer;
+}
+
+#middleZone{
+	height: var(--middleZoneHeight);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background-color: yellow;
+}
+
+
+#mapZone{
+	width: 100%;
+	height: 100%;
+	background-color: #B5DDFC;
+	transition: all 0.3s;
+}
+
+#mapZone.minimized{
+	width: 50%;
+}
+
+#closeBurgerDiv{
+	position: absolute;	
+	top: 16vh;
+	left: 12vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width:10vh;
+	height:10vh;
+}
+
+#closeHamburger{
+	width: 8vh;
+	fill: rgba(255, 255, 255, 0);  
+	transition: all 0.2s ease-in;
+}
+
+#closeHamburger.visible{
+	fill: rgba(255, 255, 255, 0.7);
+}
+
+#closeHamburger.visible:hover{
+	width: 10vh;
+	fill: rgba(255, 255, 255, 1);
+	cursor: pointer;
+}
+
+#countryName{
+	background-color: lightSlateGray;
+	width: 100%;
+	height: 7%;  
+	font: sans-serif;
+	font-size: 3vh;
+	font-style: italic;
+	font-weight: 700;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#mapImage{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 93%;
+}
+
+#svgMap{  
+	width: 100%;
+	max-height: 100%; 
+}
+
+.land{
+	fill: white;
+	stroke: gray;
+	stroke-width: 0.2px;
+	transition: all 0.2s ease-out;
+}
+.land.over{
+	fill: lightGray;
+	stroke-width: 0.5px;
+}
+.land.student{
+	fill: yellow;
+}
+.land.student.over{
+	fill: orange;	
+	cursor: pointer;
+}
+.land.unselectable{
+	fill: rgba(100, 100, 100, 0.5);
+	stroke-width: 0;
+}
+.land.student.selected{
+	fill: greenYellow;
+	stroke-width: 0.5px;
+}
+
+#avatarsOnCountry{
+	position: absolute;
+	width: 50vw;
+	height : 0vh;
+	display: flex;
+	top: 100vh;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+	opacity: 0;
+	transition: all 0.5s 0.2s;
+}
+
+#avatarsOnCountry.visible{
+	top: 25vh;
+	height: 50vh;
+	opacity:1;
+}
+
+
+.countryAvatarZone{
+	pointer-events:auto;
+	cursor: pointer;
+	display: flex; 
+	align-items: center;
+	justify-content: center;
+	width: 10vh;  
+	height: 10vh;			
+	opacity: 0;
+	transition: 0.3s opacity 0.5s;
+}
+
+.countryAvatarZone.visible{
+	opacity: 1;
+}
+
+.countryAvatarZone img{  
+	width: 0vh;
+	border-radius: 50%;
+	transition: 0.3s width;
+}
+
+.countryAvatarZone.visible img{  
+	width: 7vh;	
+}
+
+.countryAvatarZone img.over{
+	width: 10vh;
+}
+
+
+#infosZone{
+	position:absolute;
+	left: 100vw;
+	width: 50%;
+	height: var(--middleZoneHeight);
+	background-color: tan;
+	transition: all 0.3s;
+}
+
+#infosZone img{
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+#infosZone.visible{
+	left: 50vw;
+	width: 50%;
+}
+
+#infosZone.visible img{
+	opacity: 1;
+}
+
+#backZone{
+	height:7%;
+	width:100%;
+	background-color:darkSlateGrey;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+#backZone:hover{
+	background-color:purple;
+	cursor: pointer;
+}	
+
+#backInfosButton{
+	height:100%;
+	display: flex;
+	align-items: center;
+	color:beige;
+}
+
+#identityDiv{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width:96%;
+	height:17vh;
+	margin:2%;
+	background-color: beige;
+	border-radius:2vh;
+}
+
+#photoImg{
+	max-height: 100%;
+	border-radius: 15%;
+	transform: rotate(-10deg);
+}
+
+#identityInfosDiv{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: start;
+	width:70%;
+	margin: 1vh;
+	font-size: 2.8vh;
+}
+
+#countryDiv{
+	height:18%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items:center;
+}
+
+#country{
+	margin-left:1vh;
+	font-size:2.4vh;
+	font-weight:300;
+}
+
+#flagImg{
+	max-height: 100%;
+	border-radius:10%;
+}
+
+#nameDiv{
+	height:23%;
+	font-weight: bold;
+}
+
+#nameDiv span{
+}
+
+#instrumentDiv{
+	height: fit-content;
+	font-style: italic;
+	line-height:0.8;
+}
+
+#ageDiv{
+	height:18%;
+	font-size:2.4vh;
+}
+
+#panelInfos{
+	height:58vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+#descriptionDiv{
+	width:80%;
+	height: fit-content;
+	margin:10%;
+	background-color: lightSlateGrey;
+	border-radius:2vh;
+	text-align:justify;
+}
+
+#description{
+	color: beige;
+	padding: 2vh;
+	font-size: 2vh;	
+	font-weight: 300;
+}
+
+#songLinkDiv{
+	width:80%;
+	height: fit-content;
+	margin:10%;
+	background-color: lightSlateGrey;
+	border-radius:2vh;
+}
+
+#songLink{
+	color: beige;
+	display: block;
+	padding: 2vh;
+	font-size: 2vh;	
+	text-align:center;
+}
+
+#botMenu{
+	width: 100vw;
+	height: var(--botMenuHeight);
+	background-color: lightSlateGray;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.avatarZone{
+	cursor: pointer;
+	display: flex; 
+	align-items: center;
+	justify-content: center;
+	width: calc(var(--botMenuHeight) * 0.9);  
+	height: var(--botMenuHeight);	
+}
+
+.avatarZone img{  
+	width: calc(var(--botMenuHeight) * 0.6);
+	border-radius: 50%;
+	transition: 0.2s all;
+}
+
+.avatarZone img.over{
+	width: calc(var(--botMenuHeight) * 0.9);
+}
+
