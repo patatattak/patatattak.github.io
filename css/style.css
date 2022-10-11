@@ -387,7 +387,7 @@ html, body {
 
 #fullScreenButton{
 	position: absolute;
-	background-color: pink;
+	background-color: green;
 	width: 100vw;
 	height: 100vh;
 	top:0;
@@ -395,6 +395,7 @@ html, body {
 	display:flex;
 	justify-content:center;
 	align-items:center;
+	text-align:center;
 	font-size:4vh;
 	font-weight:700;
 	cursor: pointer;
