@@ -690,7 +690,18 @@
 	}
 	
 	function init() {
-		screen.orientation.lock('landscape');
+		document.addEventListener("keydown", (e) => {
+			if (e.keyCode == 13) {
+				if (!document.fullscreenElement) {
+					document.documentElement.requestFullscreen();
+				} else {
+					if (document.exitFullscreen) {
+						document.exitFullscreen(); 
+					}
+				}
+			}
+		}, false);
+		
 		backButton.onpointerdown = backButtonClick;
 		
 		console.log(jsonData.students.length);
