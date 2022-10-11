@@ -696,7 +696,7 @@
 			if (e.keyCode == 13) {
 				if (!document.fullscreenElement) {
 					console.log("fullscreen");
-					container.requestFullscreen();
+					document.documentElement.requestFullscreen();
 				} else {
 					document.exitFullscreen(); 
 				}
@@ -746,7 +746,6 @@
 		xmlHttp.send( null );
 		countryNames = JSON.parse(xmlHttp.responseText);
 		prevVB = Object.assign({}, currentViewBox);
-		container.requestFullscreen();
 	}
 
 </script>
