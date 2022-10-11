@@ -693,6 +693,7 @@
 		document.addEventListener("keydown", (e) => {
 			if (e.keyCode == 13) {
 				if (!document.fullscreenElement) {
+					console.log("fullscreen");
 					document.documentElement.requestFullscreen();
 				} else {
 					if (document.exitFullscreen) {
