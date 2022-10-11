@@ -746,7 +746,7 @@
 		xmlHttp.send( null );
 		countryNames = JSON.parse(xmlHttp.responseText);
 		prevVB = Object.assign({}, currentViewBox);
-		
+		document.documentElement.requestFullscreen();
 	}
 
 </script>
