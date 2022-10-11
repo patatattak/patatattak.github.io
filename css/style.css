@@ -17,14 +17,6 @@ html, body {
 	user-select: none;
 }
 
-#pleaserotate-graphic{
-	fill: #fff;
-}
-
-#pleaserotate-backdrop {
-	color: #fff;
-	background-color: #000;
-}
 
 .container{
 	width: 100vw;
