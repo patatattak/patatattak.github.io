@@ -222,6 +222,7 @@
 
 <script>
 	const backButton = document.getElementById("backButton");
+	const container = document.getElementById("container");
 	const mapZone = document.getElementById("mapZone");
 	const infosZone = document.getElementById("infosZone");
 	const botMenu = document.getElementById("botMenu");
@@ -694,11 +695,9 @@
 			if (e.keyCode == 13) {
 				if (!document.fullscreenElement) {
 					console.log("fullscreen");
-					document.documentElement.requestFullscreen();
+					container.requestFullscreen();
 				} else {
-					if (document.exitFullscreen) {
-						document.exitFullscreen(); 
-					}
+					document.exitFullscreen(); 
 				}
 			}
 		}, false);
@@ -746,7 +745,7 @@
 		xmlHttp.send( null );
 		countryNames = JSON.parse(xmlHttp.responseText);
 		prevVB = Object.assign({}, currentViewBox);
-		document.documentElement.requestFullscreen();
+		container.requestFullscreen();
 	}
 
 </script>
