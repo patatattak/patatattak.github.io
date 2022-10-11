@@ -383,7 +383,7 @@ html, body {
 	width: calc(var(--botMenuHeight) * 0.9);
 }
 
-.fullScreenButton{
+#fullScreenButton{
 	position: absolute;
 	background-color: pink;
 	width: 100vw;
