@@ -223,7 +223,7 @@
 
 <script>
 	const backButton = document.getElementById("backButton");
-	const container = document.getElementById("container");
+	const fullScreenButton = document.getElementById("fullScreenButton");
 	const mapZone = document.getElementById("mapZone");
 	const infosZone = document.getElementById("infosZone");
 	const botMenu = document.getElementById("botMenu");
@@ -687,23 +687,22 @@
 		}
 	}
 	
-	function backButtonClick(){
+	function backButtonClick(e){
 		svgMap.setAttribute("viewBox", getViewBoxString());
 	}
 	
+	function fullScreenRequest(e){
+		if (!document.fullscreenElement) {
+			document.documentElement.requestFullscreen();
+		} else {
+			document.exitFullscreen(); 
+		}
+	}
+	
 	function init() {
-		document.addEventListener("keydown", (e) => {
-			if (e.keyCode == 13) {
-				if (!document.fullscreenElement) {
-					console.log("fullscreen");
-					document.documentElement.requestFullscreen();
-				} else {
-					document.exitFullscreen(); 
-				}
-			}
-		}, false);
 		
-		backButton.onpointerdown = backButtonClick;
+		backButton.onpointerup = backButtonClick;
+		fullScreenButton.onpointerup = fullScreenRequest;
 		
 		console.log(jsonData.students.length);
 		
