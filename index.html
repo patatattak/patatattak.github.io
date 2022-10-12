@@ -54,11 +54,16 @@
 	
 	function goFullScreenUp(e){
 		if (!document.fullscreenElement) {
-			document.documentElement.requestFullscreen();
-			goFullScreenDiv.classList.add("invisible");
+			let fs = document.documentElement.requestFullscreen();
 		} else {
 			document.exitFullscreen(); 	
 			goFullScreenDiv.classList.remove("invisible");
+		}
+	}
+	
+	function fullScreenChange(e){
+		if(document.fullscreenElement){
+			goFullScreenDiv.classList.add("invisible");
 		}
 	}
 	
@@ -66,6 +71,7 @@
 		mapZone.onpointerup = mapZoneUp;
 		goFullScreenDiv.onpointerup = goFullScreenUp;
 		closeButtonDiv.onpointerup = goFullScreenUp;
+		document.onfullscreenchange = fullScreenChange;
 	}
 </script>
 </body>
