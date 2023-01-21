@@ -25,8 +25,8 @@ html, body {
 
 
 .container{
-	width: calc(100vw - 2vmin);
-	height: calc(var(--vh, 1vh) * 80 - 2vmin)
+	width: calc(100% - 2vmin);
+	height: calc(var(--vh, 1vh) * 0.8 - 2vmin)
 	background-color: darkGray;
 	overflow:hidden;
 	border-radius: 1vmin;
