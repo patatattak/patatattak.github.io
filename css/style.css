@@ -1,0 +1,411 @@
+
+:root{
+	--topMenuHeight: 8vh;
+	--avatarSize: 4.5vmax;
+	--portraitBotMenuHeight: 12vh;
+	--landscapeBotMenuHeight: 12vh;
+}
+
+html, body {
+	touch-action:none;
+	user-select: none;
+	margin: 0; 
+	padding: 0;
+	width:100vw;
+	height: 100vh; 
+	position: relative;
+	overflow-y: hidden;
+	overflow-x: hidden;	
+	background-color: black;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 400;
+	font-size: 3vmin;
+}
+
+
+.container{
+	width: calc(100vw - 2vmin);
+	height: calc(100vh - 2vmin);
+	background-color: darkGray;
+	overflow:hidden;
+	border-radius: 1vmin;
+	margin: 1vmin;
+	display: flex;
+	flex-direction: column;	
+}
+
+#topMenu{
+	width:100%;
+	height: var(--topMenuHeight);
+	background-color: green;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 10px;
+}
+
+#logoDiv{
+	height: var(--topMenuHeight);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#logo{
+	height: calc(var(--topMenuHeight) * 0.8);
+	margin: auto;
+}
+
+#mainZone{
+	width:100%;
+	background-color: yellow;
+	height: calc(100vh - var(--topMenuHeight) - var(--landscapeBotMenuHeight));
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+#mapZone{
+	background-color: #B5DDFC;
+	height:100%;
+	width:100%;
+	transition: width 0.3s ease-out;
+}
+
+#mapZone.minimized{
+	width:50%;
+}
+
+#closeBurgerDiv{
+	position: absolute;	
+	top: calc(var(--avatarSize) * 0.5 + 7%);;
+	left: calc(var(--avatarSize) * 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width:var(--avatarSize);
+	height:var(--avatarSize);
+}
+
+#closeHamburger{
+	width: calc(var(--avatarSize) * 0.8);
+	fill: rgba(255, 255, 255, 0);  
+	transition: all 0.2s ease-in;
+}
+
+#closeHamburger.visible{
+	fill: rgba(255, 255, 255, 0.7);
+}
+
+#closeHamburger.visible:hover{
+	width: calc(var(--avatarSize) * 0.95);
+	fill: rgba(255, 255, 255, 1);
+	cursor: pointer;
+}
+
+#countryName{
+	background-color: lightSlateGray;
+	width: 100%;
+	height: 7%;  
+	font: sans-serif;
+	font-size: 3vh;
+	font-style: italic;
+	font-weight: 700;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#mapImage{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 93%;
+}
+
+#svgMap{  
+	width: 100%;
+	max-height: 100%; 
+}
+
+.land{
+	fill: white;
+	stroke: gray;
+	stroke-width: 0.2px;
+	transition: all 0.2s ease-out;
+}
+.land.over{
+	fill: lightGray;
+	stroke-width: 0.5px;
+}
+.land.student{
+	fill: yellow;
+}
+.land.student.over{
+	fill: orange;	
+	cursor: pointer;
+}
+.land.unselectable{
+	fill: rgba(100, 100, 100, 0.5);
+	stroke-width: 0;
+}
+.land.student.selected{
+	fill: greenYellow;
+	stroke-width: 0.5px;
+}
+
+
+#avatarsOnCountry{
+	
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	/*height: calc(100vh - var(--topMenuHeight) - var(--landscapeBotMenuHeight));*/
+	display: flex;
+	top: 100vh;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+	opacity: 0;
+	transition: all 0.5s 0.2s;
+}
+
+#avatarsOnCountry.visible{
+	top: 0;
+	opacity:1;
+}
+
+
+.countryAvatarZone{
+	pointer-events:auto;
+	cursor: pointer;
+	display: flex; 
+	flex-direction:column;
+	align-items: center;
+	justify-content: center;
+	width: var(--avatarSize);  
+	height: var(--avatarSize);			
+	opacity: 0;
+	transition: 0.3s opacity 0.5s;
+}
+
+.countryAvatarZone.visible{
+	opacity: 1;
+}
+
+.countryAvatarZone img{  
+	width: 0;
+	border-radius: 50%;
+	transition: 0.3s width;
+}
+
+.countryAvatarZone.visible img{  
+	width: calc(var(--avatarSize) * 0.8);	
+}
+
+.countryAvatarZone img.over{
+	width: calc(var(--avatarSize) * 0.95);
+}
+
+#sidePanel{
+	background-color: pink;
+	height:100%;
+	width:50%;
+	position:absolute;
+	left:100%;
+	transition: all 0.3s ease-out;
+	top:0%;
+}
+
+#sidePanel.visible{
+	top:0%;
+	left:50%;
+}
+
+#backZone{
+	height:7%;
+	width:100%;
+	background-color:darkSlateGrey;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	color:beige;
+	transition: all 0.2s ease-out;
+}
+
+#backZone:hover{
+	background-color:purple;
+	cursor: pointer;
+}	
+
+
+#identityDiv{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width:96%;
+	margin:2%;
+	background-color: beige;
+	border-radius:2vh;
+}
+
+#photoImg{
+	max-height: 15vh;
+	border-radius: 15%;
+	transform: rotate(-10deg);
+}
+
+#identityInfosDiv{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: start;
+	padding-left:4px;
+	width:70%;
+	margin: 1vh;
+	font-size: 2.8vh;
+}
+
+#countryDiv{
+	height:15%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items:center;
+}
+
+#country{
+	margin-left:1vh;
+	font-size:2.4vh;
+	font-weight:300;
+}
+
+#flagImg{
+	max-height: 100%;
+	border-radius:10%;
+}
+
+#nameDiv{
+	height:23%;
+	font-weight: bold;
+}
+
+#nameDiv span{
+}
+
+#instrumentDiv{
+	height: fit-content;
+	font-style: italic;
+	line-height:0.8;
+}
+
+#ageDiv{
+	height:18%;
+	font-size:2.4vh;
+}
+
+#panelInfos{
+	height:58vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+#descriptionDiv{
+	width:80%;
+	height: fit-content;
+	margin:10%;
+	background-color: lightSlateGrey;
+	border-radius:2vh;
+	text-align:justify;
+}
+
+#description{
+	color: beige;
+	padding: 2vh;
+	font-size: 2vh;	
+	font-weight: 300;
+}
+
+#songLinkDiv{
+	width:80%;
+	height: fit-content;
+	margin:10%;
+	background-color: lightSlateGrey;
+	border-radius:2vh;
+}
+
+#ytplayer{
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+#botMenu{
+	background-color: red;
+	width: 100%;
+	height: var(--landscapeBotMenuHeight);
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: space-around;
+	z-index:999999;
+}
+
+
+.avatarZone{
+	cursor: pointer;
+	display: flex; 
+	align-items: center;
+	justify-content: center;
+	width: calc(var(--avatarSize) * 0.95);  
+	height: var(--avatarSize);	
+}
+
+.avatarZone img{  
+	width: calc(var(--avatarSize) * 0.8);
+	border-radius: 50%;
+	transition: 0.2s all;
+}
+
+.avatarZone img.over{
+	width: calc(var(--avatarSize) * 0.9);
+}
+
+@media only screen and (orientation: portrait) {
+	
+	#botMenu{
+		height: var(--portraitBotMenuHeight);
+	}
+	
+	#mainZone{
+		height: calc(100vh - var(--topMenuHeight) - var(--portraitBotMenuHeight));
+	}
+	
+	#mapZone{
+		height:100%;
+		transition: height 0.3s ease-out;
+	}
+
+	#mapZone.minimized{
+		width:100%;
+		height:50%;
+	}
+
+	#sidePanel{
+		height:50%;
+		width:100%;
+		position:absolute;
+		top:100%;
+		left:0%;
+	}
+
+	#sidePanel.visible{
+		left:0%;
+		top:50%;
+	}
+	
+}
