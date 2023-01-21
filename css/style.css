@@ -60,7 +60,7 @@ html, body {
 #mainZone{
 	width:100%;
 	background-color: yellow;
-	height: calc(100vh - var(--topMenuHeight) - var(--landscapeBotMenuHeight));
+	height: calc(100% - var(--topMenuHeight) - var(--landscapeBotMenuHeight));
 	display: flex;
 	flex-direction: column;
 	position: relative;
