@@ -26,7 +26,6 @@ html, body {
 .container{
 	width: calc(100% - 2vmin);
 	height:calc(100 * var(--vh) - 2vmin);
-	/*height: calc(var(--vh, 1vh) * 80 - 2vmin);*/
 	background-color: darkGray;
 	overflow:hidden;
 	border-radius: 1vmin;
@@ -163,9 +162,8 @@ html, body {
 	width: 100%;
 	height: 100%;
 	position: absolute;
-	/*height: calc(100vh - var(--topMenuHeight) - var(--landscapeBotMenuHeight));*/
 	display: flex;
-	top: 100vh;
+	flex-direction:row;
 	align-items: center;
 	justify-content: center;
 	pointer-events: none;
@@ -174,7 +172,6 @@ html, body {
 }
 
 #avatarsOnCountry.visible{
-	top: 0;
 	opacity:1;
 }
 
@@ -384,6 +381,7 @@ html, body {
 	
 	#mainZone{
 		height: calc(100% - var(--topMenuHeight) - var(--portraitBotMenuHeight));
+		flex-direction: row;
 	}
 	
 	#mapZone{
@@ -408,5 +406,7 @@ html, body {
 		left:0%;
 		top:50%;
 	}
+	
+	
 	
 }
