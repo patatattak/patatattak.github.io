@@ -351,12 +351,12 @@
 		identityInfosDiv.appendChild(nameDiv);
 		let instrumentDiv = document.createElement("div");
 		instrumentDiv.id = "instrumentDiv";
-		instrumentDiv.innerHTML = student.instrument;
+		instrumentDiv.innerHTML = student.mainInstrument;
 		identityInfosDiv.appendChild(instrumentDiv);		
-		let ageDiv = document.createElement("div");
-		ageDiv.id = "ageDiv";
-		ageDiv.innerText = student.age;
-		identityInfosDiv.appendChild(ageDiv);
+		let otherInstrumentsDiv = document.createElement("div");
+		otherInstrumentsDiv.id = "otherInstrumentsDiv";
+		otherInstrumentsDiv.innerText = student.otherInstruments;
+		identityInfosDiv.appendChild(otherInstrumentsDiv);
 		let countryDiv = document.createElement("div");
 		countryDiv.id = "countryDiv";
 		let flagImg = document.createElement("img");
