@@ -383,7 +383,7 @@ html, body {
 	}
 	
 	#mainZone{
-		height: calc(100vh - var(--topMenuHeight) - var(--portraitBotMenuHeight));
+		height: calc(100% - var(--topMenuHeight) - var(--portraitBotMenuHeight));
 	}
 	
 	#mapZone{
