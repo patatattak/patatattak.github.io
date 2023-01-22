@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="data.js"></script>  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700">
 </head>
 
 <body onload="init();">
@@ -216,7 +216,10 @@
 										
 				</div>
 			</div>
-			<div id="sidePanel"></div>
+			<div id="sidePanel">
+				<div id="backZone">Retour</div>
+				<div id="studentPage"></div>;
+			</div>
 		</div>	
 		<div id="botMenu"></div>
 	</div>
@@ -226,6 +229,8 @@
 	// variables pour récupérer les éléments du DOM
 	const mapZone = document.getElementById("mapZone");
 	const sidePanel = document.getElementById("sidePanel");
+	const backZone = document.getElementById("backZone");
+	const studentPage = document.getElementById("studentPage");
 	const botMenu = document.getElementById("botMenu");
 	const lands = document.getElementsByClassName("land");
 	const countryNameDiv = document.getElementById("countryName");
@@ -255,6 +260,7 @@
 	//fonction d'initialisation appelée au chargement de la page
 	function init() {
 		mapZone.onpointerup = mapZoneUp;
+		backZone.onpointerup = backInfosUp;
 		window.onorientationchange = (event) => {
 			setRealSize();
 		};
@@ -320,19 +326,19 @@
 	//fonction pour créer la zone infos, à partir de l'index du student sélectionné
 	function createInfosZone(index){
 		let student = jsonData.students[index];
-		sidePanel.innerHTML = "";
+		studentPage.innerHTML = "";
 		
-		//construction du bouton de retour (une div "pleine" avec du text)
+		/*//construction du bouton de retour (une div "pleine" avec du text)
 		//création d'un élément de type div dans le document, auquel on peut ici accéder avec la variable nommé "backZone";
 		let backZone = document.createElement("div");
 		//assignation de l'id à notre div, pour pouvoir agir en css dessus. 
 		backZone.id = "backZone";
 		//écoute de l'événement onpointerup pour récupérer le clic du bouton. La fonction appelée sera "backInfosUp";
-		backZone.onpointerup = backInfosUp;
+		
 		//assignation du texte
 		backZone.innerHTML = "Retour";
 		//on attache notre div backZone à la div parente, avec appendChild
-		sidePanel.appendChild(backZone);
+		studentPage.appendChild(backZone);*/
 		
 		let identityDiv = document.createElement("div");
 		identityDiv.id = "identityDiv";		
@@ -349,10 +355,10 @@
 		nameDiv.id = "nameDiv";
 		nameDiv.innerHTML = student.firstName + " <span>" + student.familyName + "</span>";
 		identityInfosDiv.appendChild(nameDiv);
-		let instrumentDiv = document.createElement("div");
-		instrumentDiv.id = "instrumentDiv";
-		instrumentDiv.innerHTML = student.mainInstrument;
-		identityInfosDiv.appendChild(instrumentDiv);		
+		let mainInstrumentDiv = document.createElement("div");
+		mainInstrumentDiv.id = "mainInstrumentDiv";
+		mainInstrumentDiv.innerHTML = student.mainInstrument;
+		identityInfosDiv.appendChild(mainInstrumentDiv);		
 		let otherInstrumentsDiv = document.createElement("div");
 		otherInstrumentsDiv.id = "otherInstrumentsDiv";
 		otherInstrumentsDiv.innerText = student.otherInstruments;
@@ -361,7 +367,7 @@
 		countryDiv.id = "countryDiv";
 		let flagImg = document.createElement("img");
 		flagImg.id = "flagImg";
-		flagImg.src = "https://raw.githubusercontent.com/hampusborgos/country-flags/main/svg/" + student.countryCode.toLowerCase() + ".svg";
+		flagImg.src = "flags/" + student.countryCode.toLowerCase() + ".svg";
 		flagImg.alt = student.countryCode + " flag";
 		countryDiv.appendChild(flagImg);
 		let country = document.createElement("div");
@@ -370,18 +376,23 @@
 		countryDiv.appendChild(country);
 		identityInfosDiv.appendChild(countryDiv);		
 		identityDiv.appendChild(identityInfosDiv);		
-		sidePanel.appendChild(identityDiv);
+		studentPage.appendChild(identityDiv);
 		
-		let panelInfos = document.createElement("div");
-		panelInfos.id = "panelInfos";
+		
 		
 		let descriptionDiv = document.createElement("div");
 		descriptionDiv.id = "descriptionDiv";
+		let descriptionLabel = document.createElement("div");
+		descriptionLabel.id = "descriptionLabel";
+		descriptionLabel.innerHTML = "Présentation :";
+		descriptionDiv.appendChild(descriptionLabel);
 		let description = document.createElement("div");
 		description.id = "description";
-		description.innerHTML = student.description;
+		description.innerHTML = student.presentationText;
 		descriptionDiv.appendChild(description);
-		panelInfos.appendChild(descriptionDiv);
+		studentPage.appendChild(descriptionDiv);
+		
+		
 		
 		let songLinkDiv = document.createElement("div");
 		songLinkDiv.id = "songLinkDiv";
@@ -392,9 +403,7 @@
 		songLink.title = student.linkName;
 		songLink.href = student.linkUrl;
 		songLinkDiv.appendChild(songLink);
-		panelInfos.appendChild(songLinkDiv);
-		
-		sidePanel.appendChild(panelInfos);
+		studentPage.appendChild(songLinkDiv);
 	}
 	
 	function backInfosUp(ev){

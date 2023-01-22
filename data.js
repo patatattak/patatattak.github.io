@@ -12,7 +12,7 @@ var jsonData = {
 			otherInstruments: "the piano",
 			otherEthnos: "Ethnofonik and Ethno Sicily",
 			presentationText: "Je suis française, mais j'ai des origines italiennes et allemandes. Alors, j'ai toujours été habituée au mélange des cultures et des langues. Je n’imagine simplement pas vivre autrement !",
-			linkDescription: "\"Tout le printemps des paysages et des rivières monte comme un encens dans mon coeur, et le souffle de toutes choses chante en mes pensées comme une flûte.\" Rabindranath Tagore",
+			instrumentDescription: "\"Tout le printemps des paysages et des rivières monte comme un encens dans mon coeur, et le souffle de toutes choses chante en mes pensées comme une flûte.\" Rabindranath Tagore",
 			linkURL: "https://www.youtube.com/embed/n__CQt-Xykc"
 		},
 		{
@@ -25,7 +25,7 @@ var jsonData = {
 			otherInstruments: "bouzouki, ukulele, banjo, mandolin, piano (mandolin and piano beginner level)",
 			otherEthnos: "Ethno Sicily 2022",
 			presentationText: "I'm from Sicily! I usually love to play cheerful stuff to make people have fun (me included). I don't really like to learn tunes note by note; I mostly prefer to jam and improvise.",
-			linkDescription: "I need at least 15 minutes of playing during my day, otherwise I feel like something is missing and start to get nervous.",
+			instrumentDescription: "I need at least 15 minutes of playing during my day, otherwise I feel like something is missing and start to get nervous.",
 			linkURL: "https://open.spotify.com/track/0xoPdRHa9JTMR5fCcMbSpN?si=-NPkzJQHTLOtN4joKZ8ApA&utm_source=copy-link"
 		},
 		{
@@ -38,7 +38,7 @@ var jsonData = {
 			otherInstruments: "saxophone alto",
 			otherEthnos: "Germany 2019, Winter Estonia 2022, Flanders 2022",
 			presentationText: "Je suis Bruxelloise, donc citadine, j'aime l'agitation, remplir mes journées à ras bord et faire la fête jusqu'au bout de la nuit ! La musique fait partie intégrante de ma vie, elle me fait vibrer !",
-			linkDescription: "Parfois, les échanges entre mon violon et d'autres instruments me touchent plus que ce qu'on aurait pu échanger avec des mots.",
+			instrumentDescription: "Parfois, les échanges entre mon violon et d'autres instruments me touchent plus que ce qu'on aurait pu échanger avec des mots.",
 			linkURL: "https://www.youtube.com/embed/weNVc1G8cYY"
 		},
 		{
@@ -51,7 +51,7 @@ var jsonData = {
 			otherInstruments: "guitar, baglama, various string instruments, sax, zurna (beginner)",
 			otherEthnos: "Sicily",
 			presentationText: "I am originally from southern Turkey and now I live in Berlin. I love the diversity of this city where explore many different languages, music and culture. I grew up with Turkish folk music.",
-			linkDescription: "I love bass because it's bridging percussion with the harmony. It accompanies other instruments and make people dance.",
+			instrumentDescription: "I love bass because it's bridging percussion with the harmony. It accompanies other instruments and make people dance.",
 			linkURL: "https://www.instagram.com/p/CXWkvfYDeXI/"
 		},
 		{
@@ -64,7 +64,7 @@ var jsonData = {
 			otherInstruments: "alto violin, basic notions of guitar",
 			otherEthnos: "-",
 			presentationText: "Je viens d'un univers musical classique, et c'est au gré des rencontres et voyages que j'ai commencé à comprendre la magie de l'échange des musiques vivantes, depuis c'est au coeur de ma vie ! ",
-			linkDescription: "Grondement sombre, cri déchirant, douce mélodie, rythme entrainant, de l'archet ou des doigts sur les cordes jaillissent des émotions au naturel, c'est le violoncelle ! ",
+			instrumentDescription: "Grondement sombre, cri déchirant, douce mélodie, rythme entrainant, de l'archet ou des doigts sur les cordes jaillissent des émotions au naturel, c'est le violoncelle ! ",
 			linkURL: "https://www.youtube.com/embed/sK_xRQ-n5UU"
 		},
 		{
@@ -77,7 +77,7 @@ var jsonData = {
 			otherInstruments: "guitar, chilean pandero, egg shakers, ",
 			otherEthnos: "Ethno Chile, twice",
 			presentationText: "Half of my fmily is Peruvian and the other Chilean,  I believe the mixture is beautiful and the music even more. I have a cat, and I like wine and cheese. Please accept me I need to go eat all that :)",
-			linkDescription: "Although the oboe is not a folk instrument in Chile, it is the wind, the air that we blow on the reeds, that has always inspired the sounds of the Andes.",
+			instrumentDescription: "Although the oboe is not a folk instrument in Chile, it is the wind, the air that we blow on the reeds, that has always inspired the sounds of the Andes.",
 			linkURL: "https://www.youtube.com/embed/GOG5Y-hT9t8"
 		},
 		{
@@ -87,10 +87,10 @@ var jsonData = {
 			country: "France",
 			countryCode: "FR",
 			mainInstrument: "violon",
-			otherInstruments: "none",
+			otherInstruments: " ",
 			otherEthnos: "Ethnofrance 2022",
 			presentationText: "Je viens de la banlieue de Paris. Je joue de la musique depuis que je suis petite, j'adore la partager avec le plus de gens possible.",
-			linkDescription: "Le violon est souvent considéré comme un instrument ingrat, mais il peut être apprivoisé : on peut le faire grincer et couiner, mais également chanter et s'envoler.",
+			instrumentDescription: "Le violon est souvent considéré comme un instrument ingrat, mais il peut être apprivoisé : on peut le faire grincer et couiner, mais également chanter et s'envoler.",
 			linkURL: "https://www.youtube.com/embed/0wIwkvntrIA"
 		},
 		{
@@ -103,7 +103,7 @@ var jsonData = {
 			otherInstruments: "congas, bongos, djembe, pandeiro,guitar, charango, basic bass, sing",
 			otherEthnos: "Ethno Croatia 22' and Ethnofonik 22'",
 			presentationText: "I'm a percussionist and a music teacher born in Chile and currently living in Berlin. I have a really strong connection to Chile and latinoamerican folk but ¡I love to learn music from the world!",
-			linkDescription: "The cajon is so much more than just a wooden box. Is one of the most versatile instruments out there. It's really simple to play and at the same time very complex and deep. ",
+			instrumentDescription: "The cajon is so much more than just a wooden box. Is one of the most versatile instruments out there. It's really simple to play and at the same time very complex and deep. ",
 			linkURL: "https://www.youtube.com/embed/ixJjpdti9jY"
 		},
 		{
@@ -116,7 +116,7 @@ var jsonData = {
 			otherInstruments: "guitar and ukulele",
 			otherEthnos: "I participated in EuroChoir 2022, from 7- 18 July 2022 in Switzerland which consisted in a choir with 50 singers between the ages of 18 and 30 from 30 different nationalities. During 10 days, we studied ad prepared a demanding programme together with the two conductors Yuval Weinberg (ISR) and Marco Amherd (CH) and presented the results in a concert tour through Switzerland (3 different concerts).",
 			presentationText: "I started singing when I was young by listening to my grandmother. Studied vocals and I love everything that it's connected with the singing voice and how you can connect with the others through it. ",
-			linkDescription: "When I sing, I feel I am connecting with a deeper part of me and it brings me closer to our feelings. Most of the times it’s the only way I feel completely free to express them.",
+			instrumentDescription: "When I sing, I feel I am connecting with a deeper part of me and it brings me closer to our feelings. Most of the times it’s the only way I feel completely free to express them.",
 			linkURL: "https://www.youtube.com/embed/G3AHpYp6IMg"
 		},
 		{
@@ -129,7 +129,7 @@ var jsonData = {
 			otherInstruments: "guitar and cavaquinho ",
 			otherEthnos: "Ethnofonik 2021, Ethno Portugal 2022",
 			presentationText: "I come from Lisbon, Portugal. I learned to love and appreciate the hereditary power of traditional music. Wherever it is from. ",
-			linkDescription: "The guitar is a beautifully ungrateful instrument. Very practical to have around anytime and also beautiful to learn how to \"transcribe\" other instruments.",
+			instrumentDescription: "The guitar is a beautifully ungrateful instrument. Very practical to have around anytime and also beautiful to learn how to \"transcribe\" other instruments.",
 			linkURL: "https://www.youtube.com/embed/kdL1aP6f0qE"
 		},
 		{
@@ -142,7 +142,7 @@ var jsonData = {
 			otherInstruments: "little bit of piano",
 			otherEthnos: "-",
 			presentationText: "I am from Buenos Aires, Argentina. I grew up listening to a lot of music specially The Beatles. My music taste goes from Argentinian Folklore and Brazilian music to Electronic Pop, a musical mixture",
-			linkDescription: "One of my instruments comes straight from my body, the other one once was a tree and comes straight from the earth. Playing both together makes me feel my feet on the ground",
+			instrumentDescription: "One of my instruments comes straight from my body, the other one once was a tree and comes straight from the earth. Playing both together makes me feel my feet on the ground",
 			linkURL: "https://www.youtube.com/embed/tWLH4vI9zXc"
 		},
 		{
@@ -155,7 +155,7 @@ var jsonData = {
 			otherInstruments: "piano, timbalão, computer",
 			otherEthnos: "Portugal, France, Ethnofonik, Catalunya, Sweden, England",
 			presentationText: "In a somewhat delicate mix, birthed from a Portuguese mother and a Brazilian father, I grew up within the Portuguese culture with my ears glued to Brazilian music. ",
-			linkDescription: "La simplicité de l'air sûr souffle fait grandir l'espace dans la poitrine.",
+			instrumentDescription: "La simplicité de l'air sûr souffle fait grandir l'espace dans la poitrine.",
 			linkURL: "https://www.youtube.com/embed/gznX54EpYDo"
 		},
 		{
@@ -168,7 +168,7 @@ var jsonData = {
 			otherInstruments: "guitar, ukulélé",
 			otherEthnos: "FolkMarathon Ghent 2020, Ethno Portugal 2022",
 			presentationText: "Je suis née à Strasbourg, et me sens de plus en plus curieuse de la culture musicale française. J'ai pu découvrir les musiques des balkans, et me rapprocher de mes origines slovènes, ",
-			linkDescription: "La Voix m'a permis de grandir, et de me relier à mon corps. Elle est le reflet de ce qui bouillonne en moi, et je souhaite l'offrir au Monde, avec amour et présence.",
+			instrumentDescription: "La Voix m'a permis de grandir, et de me relier à mon corps. Elle est le reflet de ce qui bouillonne en moi, et je souhaite l'offrir au Monde, avec amour et présence.",
 			linkURL: "https://www.instagram.com/p/Ccib5GoKi63/"
 		},
 		{
@@ -181,7 +181,7 @@ var jsonData = {
 			otherInstruments: "none",
 			otherEthnos: "Ethno Portugal 2022 ",
 			presentationText: "I'm from Portugal and I've been playing the oboe since I can remember. First it was only classical music but now I found a big passion for traditional/folk music, especially from Cabo Verde.",
-			linkDescription: "The oboe, with his double reed, has a very unique sound. It can be incredibly melancholic but also powerful.",
+			instrumentDescription: "The oboe, with his double reed, has a very unique sound. It can be incredibly melancholic but also powerful.",
 			linkURL: ""
 		},
 		{
@@ -194,7 +194,7 @@ var jsonData = {
 			otherInstruments: "mandolin, accordion(bass), percussions",
 			otherEthnos: "-",
 			presentationText: "I come from the most hospitable, sound and benevolent region of Latvia - North Latgale. Our biggest traditional value is pusbolss, which I would like to introduce you to.",
-			linkDescription: "I chose to play the clarinet at my child school, not even knowing how this instrument sounds. Chose because it started with the letter k, because my name is Kate. But now, clarinet is my second voice.",
+			instrumentDescription: "I chose to play the clarinet at my child school, not even knowing how this instrument sounds. Chose because it started with the letter k, because my name is Kate. But now, clarinet is my second voice.",
 			linkURL: "https://www.youtube.com/embed/vdSQBLSLRHg"
 		},
 		{
@@ -207,7 +207,7 @@ var jsonData = {
 			otherInstruments: "guitar",
 			otherEthnos: "Well, actually I have worked in 8 editions of Ethno Portugal and 4 of Ethno Cataluña since 2014. I also had the nice opportunity to participate in Ethnofonik.",
 			presentationText: "I am not afraid of procrastinating or being sad.",
-			linkDescription: "Coiffeuse en fourrure.",
+			instrumentDescription: "Coiffeuse en fourrure.",
 			linkURL: "https://www.youtube.com/embed/2775E4F7Cl8"
 		},
 		{
@@ -220,7 +220,7 @@ var jsonData = {
 			otherInstruments: "oud - percussion ( conga bongos darbouka )",
 			otherEthnos: "Ethno Tunisia ",
 			presentationText: "je suis d'origine  kerkennah et le patrimoine musical très riche  rythmiquement, j'aime cette patrimoine de puis mon enfance  en plus j'ai un famille musiciens qui poussent moi pour étudier la musique",
-			linkDescription: "les rythmes folklorique tunisien composé  sur mesure pour les chansons il ya des rythmes 12/8 6/8 ... creer ala base de polirythmique  et  plusieurs instruments",
+			instrumentDescription: "les rythmes folklorique tunisien composé  sur mesure pour les chansons il ya des rythmes 12/8 6/8 ... creer ala base de polirythmique  et  plusieurs instruments",
 			linkURL: "https://www.youtube.com/embed/IJws07Fk1IQ"
 		},
 		{
@@ -233,7 +233,7 @@ var jsonData = {
 			otherInstruments: "piano and percussion",
 			otherEthnos: "Ethno France 2022, Ethno Flanders 2022",
 			presentationText: "Hindustani classical music has shaped my life. With experience, I've learnt to combine different forms of music together which has helped me become a better musician and human being. ",
-			linkDescription: "A quote that I always go back to, shared by my teacher which says: Singing is nothing but talking in tune. This always simplifies things for me and I'm able to express myself better. ",
+			instrumentDescription: "A quote that I always go back to, shared by my teacher which says: Singing is nothing but talking in tune. This always simplifies things for me and I'm able to express myself better. ",
 			linkURL: "https://www.youtube.com/embed/EiV4GQFAtKY"
 		}
 	]

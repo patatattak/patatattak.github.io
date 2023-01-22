@@ -222,6 +222,14 @@ html, body {
 	left:50%;
 }
 
+#studentPage{
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+	height:93%;
+	width:100%;
+}
+
 #backZone{
 	height:7%;
 	width:100%;
@@ -244,15 +252,15 @@ html, body {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	height: 20%;
-	width:96%;
-	margin:2%;
+	height: 18%;
+	width:97%;
+	margin:1.5%;
 	background-color: beige;
 	border-radius:2vh;
 }
 
 #photoImg{
-	max-height: 15vh;
+	max-height: 100%;
 	border-radius: 15%;
 	transform: rotate(-10deg);
 }
@@ -263,13 +271,13 @@ html, body {
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: start;
-	padding-left:4px;
-	width:70%;
-	font-size: 2.5vmin;
+	padding-left:0px;
+	width:75%;
+	font-size: 2.8vmin;
 }
 
 #countryDiv{
-	height:15%;
+	height:18%;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -278,12 +286,12 @@ html, body {
 
 #country{
 	margin-left:1vh;
-	font-size:80%;
+	font-size:90%;
 	font-weight:300;
 }
 
 #flagImg{
-	max-height: 100%;
+	height: 100%;
 	border-radius:10%;
 }
 
@@ -295,38 +303,49 @@ html, body {
 #nameDiv span{
 }
 
-#instrumentDiv{
-	height: fit-content;
+#mainInstrumentDiv{
 	font-style: italic;
-	line-height:0.8;
 	font-size:85%;
 }
 
 #otherInstrumentsDiv{
-	height:18%;
+	width:100%;
 	font-size:70%;
+	overflow: hidden;
+    white-space: nowrap;
+	padding-bottom: 1vmin;
 }
 
 #panelInfos{
-	height:58vh;
+	height:60%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 }
 
 #descriptionDiv{
-	width:80%;
+	width:100%;
+	height: fit-content;	
+}
+
+#descriptionLabel{
+	font-size: 70%;	
+	font-weight: 500;
+	transform: rotate(-4deg);
+	padding:2%;
+}
+#description{
+	width: calc(94% - 2vmin);
 	height: fit-content;
-	margin:10%;
+	margin-left:3%;
+	margin-right:3%;
+	margin-top: 1%;
 	background-color: lightSlateGrey;
 	border-radius:2vh;
 	text-align:justify;
-}
-
-#description{
 	color: beige;
-	padding: 2vh;
-	font-size: 2%;	
+	padding: 1vmin;
+	font-size: 65%;	
 	font-weight: 300;
 }
 
