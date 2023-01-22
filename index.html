@@ -392,7 +392,17 @@
 		descriptionDiv.appendChild(description);
 		studentPage.appendChild(descriptionDiv);
 		
-		
+		let instrumentDiv = document.createElement("div");
+		instrumentDiv.id = "instrumentDiv";
+		let instrumentLabel = document.createElement("div");
+		instrumentLabel.id = "instrumentLabel";
+		instrumentLabel.innerHTML = "Mon instrument :";
+		instrumentDiv.appendChild(instrumentLabel);
+		let instrument = document.createElement("div");
+		instrument.id = "instrument";
+		instrument.innerHTML = student.instrumentDescription;
+		instrumentDiv.appendChild(instrument);
+		studentPage.appendChild(instrumentDiv);
 		
 		let songLinkDiv = document.createElement("div");
 		songLinkDiv.id = "songLinkDiv";
