@@ -330,6 +330,7 @@ html, body {
 #descriptionDiv{
 	width:100%;
 	height: fit-content;	
+	margin-top:5%;	
 }
 
 #descriptionLabel{
@@ -357,6 +358,7 @@ html, body {
 #instrumentDiv{
 	width:100%;
 	height: fit-content;	
+	margin-top:5%;	
 }
 
 #instrumentLabel{
@@ -382,7 +384,8 @@ html, body {
 
 #otherEthnosDiv{
 	width:100%;
-	height: fit-content;	
+	height: fit-content;
+	margin-top:5%;	
 }
 
 #otherEthnosLabel{
@@ -409,7 +412,8 @@ html, body {
 
 #linkDiv{
 	width:100%;
-	height: fit-content;	
+	height: 40%;	
+	margin-top:5%;
 }
 
 #linkLabel{
@@ -421,10 +425,9 @@ html, body {
 
 #embedyt{
 	width: calc(94% - 2vmin);
-	height: fit-content;
-	margin-left:3%;
-	margin-right:3%;
-	margin-top: 1%;
+	height: 100%;
+	margin:3%;
+	margin-top:1%;
 	background-color: lightSlateGrey;
 	border-radius:2vh;
 	text-align:justify;
