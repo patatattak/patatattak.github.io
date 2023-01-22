@@ -27,7 +27,7 @@ html, body {
 .container{
 	width: calc(100% - 2vmin);
 	height:50vh;
-	height: calc(var(--vh, 1vh) * 80 - 2vmin);
+	/*height: calc(var(--vh, 1vh) * 80 - 2vmin);*/
 	background-color: darkGray;
 	overflow:hidden;
 	border-radius: 1vmin;
