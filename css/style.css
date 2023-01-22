@@ -415,6 +415,7 @@ html, body {
 	transform: rotate(-1deg);
 	padding-left:10%;	
 }
+
 #embedyt{
 	width: calc(94% - 2vmin);
 	height: fit-content;
