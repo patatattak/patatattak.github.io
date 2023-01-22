@@ -1,9 +1,9 @@
 
 :root{
 	--topMenuHeight: 6vh;
-	--avatarSize: 7.5vmin;
-	--portraitBotMenuHeight: 10vh;
-	--landscapeBotMenuHeight: 8vh;
+	--avatarSize: 8vmin;
+	--portraitBotMenuHeight: 14vh;
+	--landscapeBotMenuHeight: 10vh;
 }
 
 html, body {
@@ -107,7 +107,7 @@ html, body {
 #countryName{
 	background-color: lightSlateGray;
 	width: 100%;
-	height: 5%;  
+	height: 7%;  
 	font: sans-serif;
 	font-size: 3vmin;
 	font-style: italic;
@@ -122,7 +122,7 @@ html, body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 95%;
+	height: 93%;
 }
 
 #svgMap{  
@@ -177,7 +177,7 @@ html, body {
 
 
 .countryAvatarZone{
-	pointer-events:auto;
+	pointer-events:none;
 	cursor: pointer;
 	display: flex; 
 	flex-direction:column;
@@ -190,6 +190,7 @@ html, body {
 }
 
 .countryAvatarZone.visible{
+	pointer-events:auto;
 	opacity: 1;
 }
 
@@ -226,14 +227,14 @@ html, body {
 	display:flex;
 	flex-direction:column;
 	justify-content:space-between;
-	height:95%;
+	height:93%;
 	width:100%;
 	overflow-y:auto;
 	overflow-x:hidden;
 }
 
 #backZone{
-	height:5%;
+	height:7%;
 	width:100%;
 	background-color:darkSlateGrey;
 	display: flex;
@@ -254,7 +255,7 @@ html, body {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	height: 16%;
+	height: 20%;
 	width:97%;
 	margin:1.5%;
 	background-color: beige;
@@ -275,7 +276,7 @@ html, body {
 	align-items: start;
 	padding-left:0px;
 	width:75%;
-	font-size: 2.7vmin;
+	font-size: 3vmin;
 }
 
 #countryDiv{
