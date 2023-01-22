@@ -255,9 +255,15 @@
 	//fonction d'initialisation appelée au chargement de la page
 	function init() {
 		mapZone.onpointerup = mapZoneUp;
+		window.onorientationchange = (event) => {
+			setRealSize();
+		};
+		window.onresize = (event) => {
+			setRealSize();
+		};
+		
 		//trick pour avoir la bonne hauteur de viewport sur mobile
-		let vh = window.innerHeight * 0.01;
-		document.documentElement.style.setProperty('--vh', `${vh}px`);
+		setRealSize();
 		
 		//création des avatars du botMenu
 		for(var i = 0; i < jsonData.students.length; i++){
@@ -306,7 +312,11 @@
 		prevVB = Object.assign({}, currentViewBox);
 		
 	}
-	
+	//fonction trick pour définir la vraie taille du viewport
+	function setRealSize(){
+		let vh = window.innerHeight * 0.01;
+		document.documentElement.style.setProperty('--vh', `${vh}px`);
+	}
 	//fonction pour créer la zone infos, à partir de l'index du student sélectionné
 	function createInfosZone(index){
 		let student = jsonData.students[index];
