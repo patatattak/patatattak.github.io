@@ -404,16 +404,32 @@
 		instrumentDiv.appendChild(instrument);
 		studentPage.appendChild(instrumentDiv);
 		
-		let songLinkDiv = document.createElement("div");
-		songLinkDiv.id = "songLinkDiv";
-		let songLink = document.createElement("a");
-		songLink.id = "songLink";
-		let link = document.createTextNode(student.linkName);
-		songLink.appendChild(link);
-		songLink.title = student.linkName;
-		songLink.href = student.linkUrl;
-		songLinkDiv.appendChild(songLink);
-		studentPage.appendChild(songLinkDiv);
+		let otherEthnosDiv = document.createElement("div");
+		otherEthnosDiv.id = "otherEthnosDiv";
+		let otherEthnosLabel = document.createElement("div");
+		otherEthnosLabel.id = "otherEthnosLabel";
+		otherEthnosLabel.innerHTML = "Participations à d'autres projets Ethno ?";
+		otherEthnosDiv.appendChild(otherEthnosLabel);
+		let otherEthnos = document.createElement("div");
+		otherEthnos.id = "otherEthnos";
+		otherEthnos.innerHTML = student.otherEthnos;
+		otherEthnosDiv.appendChild(otherEthnos);
+		studentPage.appendChild(otherEthnosDiv);
+		
+		if(student.linkURL.includes("youtube.com")){
+			let linkDiv = document.createElement("div");
+			linkDiv.id = "linkDiv";
+			let linkLabel = document.createElement("div");
+			linkLabel.id = "linkLabel";
+			linkLabel.innerHTML = "Lien :";
+			linkDiv.appendChild(linkLabel);
+			let embedyt = document.createElement("iframe");
+			embedyt.id = "embedyt";
+			embedyt.src = student.linkURL;
+			linkDiv.appendChild(embedyt);
+			studentPage.appendChild(linkDiv);
+		}
+		
 	}
 	
 	function backInfosUp(ev){

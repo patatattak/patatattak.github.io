@@ -1,8 +1,8 @@
 
 :root{
 	--topMenuHeight: 6vh;
-	--avatarSize: 7vmin;
-	--portraitBotMenuHeight: 12vh;
+	--avatarSize: 7.5vmin;
+	--portraitBotMenuHeight: 10vh;
 	--landscapeBotMenuHeight: 8vh;
 }
 
@@ -332,7 +332,7 @@ html, body {
 #descriptionLabel{
 	font-size: 70%;	
 	font-weight: 500;
-	transform: rotate(3deg);
+	transform: rotate(1deg);
 	padding-right:10%;
 	text-align: right;
 }
@@ -341,7 +341,7 @@ html, body {
 	height: fit-content;
 	margin-left:3%;
 	margin-right:3%;
-	margin-top: 2%;
+	margin-top: 1%;
 	background-color: lightSlateGrey;
 	border-radius:2vh;
 	text-align:justify;
@@ -359,7 +359,7 @@ html, body {
 #instrumentLabel{
 	font-size: 70%;	
 	font-weight: 500;
-	transform: rotate(-3deg);
+	transform: rotate(-1deg);
 	padding-left:10%;	
 }
 #instrument{
@@ -367,7 +367,7 @@ html, body {
 	height: fit-content;
 	margin-left:3%;
 	margin-right:3%;
-	margin-top: 2%;
+	margin-top: 1%;
 	background-color: lightSlateGrey;
 	border-radius:2vh;
 	text-align:justify;
@@ -377,18 +377,57 @@ html, body {
 	font-weight: 300;
 }
 
-#songLinkDiv{
-	width:80%;
-	height: fit-content;
-	margin:10%;
-	background-color: lightSlateGrey;
-	border-radius:2vh;
+#otherEthnosDiv{
+	width:100%;
+	height: fit-content;	
 }
 
-#ytplayer{
-	flex-flow: row wrap;
-	align-items: center;
-	justify-content: center;
+#otherEthnosLabel{
+	font-size: 70%;	
+	font-weight: 500;
+	transform: rotate(1deg);
+	padding-right:10%;
+	text-align: right;	
+}
+#otherEthnos{
+	width: calc(94% - 2vmin);
+	height: fit-content;
+	margin-left:3%;
+	margin-right:3%;
+	margin-top: 1%;
+	background-color: lightSlateGrey;
+	border-radius:2vh;
+	text-align:justify;
+	color: beige;
+	padding: 1vmin;
+	font-size: 65%;	
+	font-weight: 300;
+}
+
+#linkDiv{
+	width:100%;
+	height: fit-content;	
+}
+
+#linkLabel{
+	font-size: 70%;	
+	font-weight: 500;
+	transform: rotate(-1deg);
+	padding-left:10%;	
+}
+#embedyt{
+	width: calc(94% - 2vmin);
+	height: fit-content;
+	margin-left:3%;
+	margin-right:3%;
+	margin-top: 1%;
+	background-color: lightSlateGrey;
+	border-radius:2vh;
+	text-align:justify;
+	color: beige;
+	padding: 1vmin;
+	font-size: 65%;	
+	font-weight: 300;
 }
 
 #botMenu{
