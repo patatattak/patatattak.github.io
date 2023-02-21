@@ -18,8 +18,18 @@
 	<div class="container">
 		<div id="topMenu">
 			<div id="logoDiv">
-				<img src="images/logo.png" id="logo" alt="logo">
-			</div>			
+				<img src="images/Ethno France 22 faca2c.png" id="logo" alt="logo">
+			</div>		
+				<!--
+				
+				
+				GROUPE I (html)   >>>>>		
+						
+				
+				codez dans cette div
+				(pour le css, c'est à vous de créer vos propres ids/class pour gérer l'affichage)
+				
+				-->			
 		</div>		
 		<div id="mainZone">
 			<div id="mapZone">
@@ -218,7 +228,37 @@
 			</div>
 			<div id="sidePanel">
 				<div id="backZone">Retour</div>
-				<div id="studentPage"></div>;
+				<div id="studentPage"></div>				
+				<div id="projectPage"><!--
+				
+				
+				GROUPE A ET B (html)   >>>>>		
+						
+				
+				codez dans cette div
+				
+				
+				--></div>				
+				<div id="partnersPage"><!--
+				
+				
+				GROUPE C et D (html)   >>>>>		
+						
+				
+				codez dans cette div
+				
+				
+				--></div>
+				<div id="creditsPage"><!--
+				
+				
+				GROUPE E et F (html)   >>>>>		
+						
+				
+				codez dans cette div
+				
+				
+				--></div>
 			</div>
 		</div>	
 		<div id="botMenu"></div>
@@ -231,6 +271,9 @@
 	const sidePanel = document.getElementById("sidePanel");
 	const backZone = document.getElementById("backZone");
 	const studentPage = document.getElementById("studentPage");
+	const projectPage = document.getElementById("projectPage");
+	const partnersPage = document.getElementById("partnersPage");
+	const creditsPage = document.getElementById("creditsPage");
 	const botMenu = document.getElementById("botMenu");
 	const lands = document.getElementsByClassName("land");
 	const countryNameDiv = document.getElementById("countryName");
@@ -253,14 +296,15 @@
 	let svgMapClicked = false;
 	let svgMapClickPoint;	
 	let countryNames;
+	let studentDivs;
 	
-	// machine à état : "nav" en mode navigation, "country" quand on est sur un pays, "infos" quand on affiche le panel
+	// machine à état : "nav" en mode navigation, "country" quand on est sur un pays, "student", "project", "partners", "credits"
 	let state = "nav";
 	
 	//fonction d'initialisation appelée au chargement de la page
 	function init() {
-		mapZone.onpointerup = mapZoneUp;
 		backZone.onpointerup = backInfosUp;
+		document.onkeydown = test;
 		window.onorientationchange = (event) => {
 			setRealSize();
 		};
@@ -271,7 +315,16 @@
 		//trick pour avoir la bonne hauteur de viewport sur mobile
 		setRealSize();
 		
+		// récupération des noms de pays en fonction du langage
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.open( "GET", "https://cdn.jsdelivr.net/npm/world_countries_lists@latest/data/countries/" + jsonData.language + "/countries.json", false ); // false for synchronous request
+		xmlHttp.send( null );
+		countryNames = JSON.parse(xmlHttp.responseText);
+		prevVB = Object.assign({}, currentViewBox);
+		
+		studentDivs = [];
 		//création des avatars du botMenu
+		let order = 1;
 		for(var i = 0; i < jsonData.students.length; i++){
 			let div = document.createElement("div");
 			div.classList.add("avatarZone");
@@ -285,11 +338,16 @@
 			img.onpointerup = avatarUp;
 			div.appendChild(img);
 			botMenu.appendChild(div);
+			console.log(jsonData.students[i].familyName);
 			console.log(jsonData.students[i].countryCode);
 			land = document.getElementById(jsonData.students[i].countryCode);
+			
 			if(!land.classList.contains("student")){
 				land.classList.add("student");
+				land.classList.add("_" + order.toString());
+				order++;
 			}
+			studentDivs.push(createInfosZone(i));
 		}
 		// événements de survol et de clics sur les pays
 		for (var i = 0; i < lands.length; i++) {
@@ -310,12 +368,7 @@
 		// événement clic sur le burger de fermeture
 		closeHamburger.onpointerup = closeBurgerUp;
 		
-		// récupération des noms de pays en fonction du langage
-		var xmlHttp = new XMLHttpRequest();
-		xmlHttp.open( "GET", "https://cdn.jsdelivr.net/npm/world_countries_lists@latest/data/countries/" + jsonData.language + "/countries.json", false ); // false for synchronous request
-		xmlHttp.send( null );
-		countryNames = JSON.parse(xmlHttp.responseText);
-		prevVB = Object.assign({}, currentViewBox);
+		
 		
 	}
 	//fonction trick pour définir la vraie taille du viewport
@@ -323,10 +376,63 @@
 		let vh = window.innerHeight * 0.01;
 		document.documentElement.style.setProperty('--vh', `${vh}px`);
 	}
+	
+	function displayStudentPage(index){
+		if(state != "student"){			
+			studentPage.classList.add("visible");
+			partnersPage.classList.remove("visible");
+			creditsPage.classList.remove("visible");
+			projectPage.classList.remove("visible");
+			state = "student";			
+		}		
+		studentPage.innerHTML = "";		
+		studentPage.appendChild(studentDivs[index]);
+		displayPanel();
+	}
+	
+	function displayProjectPage(){
+		if(state != "project"){
+			studentPage.innerHTML = "";			
+			studentPage.classList.remove("visible");
+			partnersPage.classList.remove("visible");
+			creditsPage.classList.remove("visible");
+			projectPage.classList.add("visible");
+			state = "project";
+			displayPanel();
+		}				
+	}
+	
+	function displayPartnersPage(){
+		if(state != "partners"){
+			studentPage.innerHTML = "";			
+			studentPage.classList.remove("visible");
+			partnersPage.classList.add("visible");
+			creditsPage.classList.remove("visible");
+			projectPage.classList.remove("visible");
+			state = "partners";
+			displayPanel();
+		}				
+	}
+	
+	function displayCreditsPage(){
+		if(state != "credits"){
+			studentPage.innerHTML = "";			
+			studentPage.classList.remove("visible");
+			partnersPage.classList.remove("visible");
+			creditsPage.classList.add("visible");
+			projectPage.classList.remove("visible");
+			state = "credits";
+			displayPanel();
+		}				
+	}
+	
 	//fonction pour créer la zone infos, à partir de l'index du student sélectionné
 	function createInfosZone(index){
 		let student = jsonData.students[index];
-		studentPage.innerHTML = "";
+		
+		let studentDiv = document.createElement("div");
+		studentDiv.id = "studentDiv";
+		
 		
 		/*//construction du bouton de retour (une div "pleine" avec du text)
 		//création d'un élément de type div dans le document, auquel on peut ici accéder avec la variable nommé "backZone";
@@ -376,65 +482,84 @@
 		countryDiv.appendChild(country);
 		identityInfosDiv.appendChild(countryDiv);		
 		identityDiv.appendChild(identityInfosDiv);		
-		studentPage.appendChild(identityDiv);
+		studentDiv.appendChild(identityDiv);
 		
 		
 		
 		let descriptionDiv = document.createElement("div");
 		descriptionDiv.id = "descriptionDiv";
+		descriptionDiv.classList.add("bloc");
 		let descriptionLabel = document.createElement("div");
 		descriptionLabel.id = "descriptionLabel";
+		descriptionLabel.classList.add("label");
 		descriptionLabel.innerHTML = "Présentation :";
 		descriptionDiv.appendChild(descriptionLabel);
 		let description = document.createElement("div");
 		description.id = "description";
+		description.classList.add("textDescription");
 		description.innerHTML = student.presentationText;
 		descriptionDiv.appendChild(description);
-		studentPage.appendChild(descriptionDiv);
+		studentDiv.appendChild(descriptionDiv);
 		
 		let instrumentDiv = document.createElement("div");
 		instrumentDiv.id = "instrumentDiv";
+		instrumentDiv.classList.add("bloc");
 		let instrumentLabel = document.createElement("div");
 		instrumentLabel.id = "instrumentLabel";
+		instrumentLabel.classList.add("label");
 		instrumentLabel.innerHTML = "Mon instrument :";
 		instrumentDiv.appendChild(instrumentLabel);
 		let instrument = document.createElement("div");
 		instrument.id = "instrument";
+		instrument.classList.add("textDescription");
 		instrument.innerHTML = student.instrumentDescription;
 		instrumentDiv.appendChild(instrument);
-		studentPage.appendChild(instrumentDiv);
+		studentDiv.appendChild(instrumentDiv);
 		
 		let otherEthnosDiv = document.createElement("div");
 		otherEthnosDiv.id = "otherEthnosDiv";
+		otherEthnosDiv.classList.add("bloc");
 		let otherEthnosLabel = document.createElement("div");
 		otherEthnosLabel.id = "otherEthnosLabel";
+		otherEthnosLabel.classList.add("label");
 		otherEthnosLabel.innerHTML = "Participations à d'autres projets Ethno ?";
 		otherEthnosDiv.appendChild(otherEthnosLabel);
 		let otherEthnos = document.createElement("div");
 		otherEthnos.id = "otherEthnos";
+		otherEthnos.classList.add("textDescription");
 		otherEthnos.innerHTML = student.otherEthnos;
 		otherEthnosDiv.appendChild(otherEthnos);
-		studentPage.appendChild(otherEthnosDiv);
+		studentDiv.appendChild(otherEthnosDiv);
 		
 		if(student.linkURL.includes("youtube.com")){
 			let linkDiv = document.createElement("div");
 			linkDiv.id = "linkDiv";
+			linkDiv.classList.add("bloc");
 			let linkLabel = document.createElement("div");
 			linkLabel.id = "linkLabel";
+			linkLabel.classList.add("label");
 			linkLabel.innerHTML = "Lien :";
 			linkDiv.appendChild(linkLabel);
 			let embedyt = document.createElement("iframe");
 			embedyt.id = "embedyt";
+			embedyt.classList.add("textDescription");
 			embedyt.src = student.linkURL;
 			linkDiv.appendChild(embedyt);
-			studentPage.appendChild(linkDiv);
+			studentDiv.appendChild(linkDiv);
 		}
 		
+		return studentDiv;
 	}
 	
 	function backInfosUp(ev){
 		hidePanel();
-		state = "country";
+		if(avatarsOnCountry.classList.contains("visible")){
+			state = "country";
+		}
+		else{
+			state = "nav";
+		}
+		console.log(state);
 	}
 	
 	//fonction pour faire apparaitre le panel
@@ -489,10 +614,8 @@
 	//fonction appelée au clic sur un avatar
 	function avatarUp(ev){
 		let id = ev.target.id;
-		let index = parseInt(id.replace("avatar", ""));
+		let index = parseInt(id.replace("avatar", ""));			
 		
-		createInfosZone(index);
-		displayPanel();
 		if(!isSelectedCountryCode(jsonData.students[index].countryCode)){
 			let countryPath;
 			for(var i = 0; i < lands.length; i++){
@@ -518,7 +641,7 @@
 			countryNameDiv.innerText = name;
 		}		
 		
-		state = "infos";
+		displayStudentPage(index);
 	}
 	
 	
@@ -638,7 +761,6 @@
 			}
 			
 			hidePanel();
-			
 			state = "nav";
 		}
 	}
@@ -648,11 +770,23 @@
 			x: currentViewBox.left + currentViewBox.width / 2,
 			y: currentViewBox.top + currentViewBox.height / 2
 		};
+		let rect = mapImage.getBoundingClientRect();
+		let ratio = rect.width / rect.height;
+		console.log(ratio);
 		let newWidth = currentViewBox.width - currentViewBox.width * zoomStrength;
-		let newHeight = currentViewBox.height - currentViewBox.height * zoomStrength;
-		if(newWidth < 0.1 * fullViewBox.width || newHeight < 0.1 * fullViewBox.height){
+		//let newHeight = currentViewBox.height - currentViewBox.height * zoomStrength;
+		
+		
+		if(newWidth < 0.1 * fullViewBox.width){
 			newWidth = 0.1 * fullViewBox.width;
+		}
+		let newHeight = newWidth / ratio;
+		if(newHeight < 0.1 * fullViewBox.height){
 			newHeight = 0.1 * fullViewBox.height;
+			newWidth = newHeight * ratio;
+		}
+		if(newHeight > 670){
+			newHeight = 670;
 		}
 		currentViewBox = {
 			left: center.x - newWidth / 2,
@@ -660,6 +794,8 @@
 			width: newWidth,
 			height: newHeight
 		};			
+		verifyViewBoxMove();
+		console.log(getViewBoxString());
 		gsap.to(svgMap, {
 			duration: 0.3,
 			attr: {
@@ -674,11 +810,20 @@
 			x: currentViewBox.left + currentViewBox.width / 2,
 			y: currentViewBox.top + currentViewBox.height / 2
 		};
+		let rect = mapImage.getBoundingClientRect();
+		let ratio = rect.width / rect.height;
+		console.log(ratio);
 		let newWidth = currentViewBox.width + currentViewBox.width * zoomStrength;
-		let newHeight = currentViewBox.height + currentViewBox.height * zoomStrength;
-		if(newWidth > fullViewBox.width || newHeight > fullViewBox.height){
+		let newHeight = newWidth / ratio;
+		if(newWidth > fullViewBox.width){
 			newWidth = fullViewBox.width;
 			newHeight = fullViewBox.height;
+		}
+		
+		
+		if(newHeight > fullViewBox.height){
+			newHeight = fullViewBox.height;
+			newWidth = fullViewBox.width;
 		}
 		currentViewBox = {
 			left: center.x - newWidth / 2,
@@ -687,6 +832,8 @@
 			height: newHeight
 		};
 		verifyViewBoxMove();
+		console.log(getViewBoxString());
+		
 		gsap.to(svgMap, {
 			duration: 0.3,
 			attr: {
@@ -757,11 +904,7 @@
 		let id = ev.target.id;
 		let index = parseInt(id.replace("avatarOnCountry", ""));
 
-		createInfosZone(index);
-		if(state == "country"){
-			displayPanel();
-		}
-		state = "infos";			
+		displayStudentPage(index);		
 	}
 	
 	//fonction pour mettre à jour les classes sur les éléments "land"
@@ -808,14 +951,50 @@
 	}
 	
 	
-	function mapZoneUp(e){
-		if(!mapZone.classList.contains("minimized")){
-			//displayPanel();
-		}
-		else{
-			//hidePanel();
+	function test(e){
+		if(e.key == "e"){
+			if(state != "project"){
+				displayProjectPage();
+			}
+			else{
+				hidePanel();
+				if(avatarsOnCountry.classList.contains("visible")){
+					state = "country";
+				}
+				else{
+					state = "nav";
+				}
+			}
 		}		
-	}	
+		if(e.key == "p"){
+			if(state != "partners"){
+				displayPartnersPage();
+			}
+			else{
+				hidePanel();
+				if(avatarsOnCountry.classList.contains("visible")){
+					state = "country";
+				}
+				else{
+					state = "nav";
+				}
+			}
+		}		
+		if(e.key == "c"){
+			if(state != "credits"){
+				displayCreditsPage();
+			}
+			else{
+				hidePanel();
+				if(avatarsOnCountry.classList.contains("visible")){
+					state = "country";
+				}
+				else{
+					state = "nav";
+				}
+			}
+		}		
+	}
 	
 	
 </script>

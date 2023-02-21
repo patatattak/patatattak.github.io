@@ -1,0 +1,48 @@
+
+:root{
+	
+}
+
+html, body {
+	touch-action:none;
+	user-select: none;
+	margin: 0; 
+	padding: 0;
+	width:100vw;
+	height: 100vh; 
+	position: relative;
+	overflow-y: hidden;
+	overflow-x: hidden;	
+	background-color: var(--colorBackground);
+	font-family: "Montserrat", sans-serif;
+	font-weight: 400;
+	font-size: 2vmin;
+}
+
+
+.container{
+	background-color:white;
+	width: calc(100% - 2vmin);
+	height:calc(100% - 2vmin);
+	overflow:hidden;
+	border-radius: 1vmin;
+	margin: 1vmin;
+	display: flex;
+	flex-direction: row;	
+}
+
+#parsedDiv{
+	width:50%;
+}
+
+#expectedDiv{	
+	width:50%;
+}
+
+
+img{
+	width:5vmin;
+}
+
+
+	

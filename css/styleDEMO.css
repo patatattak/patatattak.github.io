@@ -6,13 +6,14 @@
 	--colorTopMenu: #3053a3;
 	--colorBotMenu: #ef3c23;
 	--colorBackground: black;
-	--colorMapSea: #374da8;
+	--colorMapSea: #B5DDFC;
 	--colorCountryName: lightSlateGray;
 	--colorCountryNameText: white;
-	--colorLand: #a9e3da;
-	--colorLandHover: #a9e3da;
+	--colorLand: white;
+	--colorLandHover: lightGray;
+	--colorLandWithStudent: yellow;
 	--colorLandWithStudentHover: orange;
-	--colorSelectedLand: white;
+	--colorSelectedLand: lime;
 	--colorStudentInfos: rgb(255, 255, 200);
 	--colorBackZone: darkGray;
 	--colorBackZoneText: white;
@@ -25,9 +26,9 @@
 	--colorPartnersPage: purple;
 	--colorCreditsPage: yellow;
 	--topMenuHeight: 6vh;
-	--avatarSize: 6.5vmin;
-	--portraitBotMenuHeight: 15vh;
-	--landscapeBotMenuHeight: 13vh;
+	--avatarSize: 8vmin;
+	--portraitBotMenuHeight: 14vh;
+	--landscapeBotMenuHeight: 10vh;
 }
 
 html, body {
@@ -102,8 +103,8 @@ html, body {
 
 #closeBurgerDiv{
 	position: absolute;	
-	top: calc(var(--avatarSize) * 0.3 + 7%);;
-	left: calc(var(--avatarSize) * 0.3);
+	top: calc(var(--avatarSize) * 0.5 + 7%);;
+	left: calc(var(--avatarSize) * 0.5);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -166,62 +167,6 @@ html, body {
 .land.student{
 	fill: var(--colorLandWithStudent);
 }
-
-/*PT*/
-.land._1{
-	fill: #de7372;
-}
-/*FR*/
-.land._2{
-	fill: #f9d361;
-}
-/*TR*/
-.land._3{
-	fill: #f9d361;
-}
-/*IT*/
-.land._4{
-	fill: #6ba9db;
-}
-/*GB*/
-.land._5{
-	fill: #8bc269;
-}
-/*HR*/
-.land._6{
-	fill: #7c685e;
-}
-/*BE*/
-.land._7{
-	fill: #ec6ba6;
-}
-/*LV*/
-.land._8{
-	fill: #e96068;
-}
-
-/*CL*/
-.land._9{
-	fill: #b8cc1d;
-}
-/*AR*/
-.land._10{
-	fill: #c061a4;
-}
-/*GE*/
-.land._11{
-	fill: #7bd0b7;
-}
-/*TN*/
-.land._12{
-	fill: #ae7dbb;
-}
-/*IN*/
-.land._13{
-	fill: #fa9cae;
-}
-
-
 .land.student.over{
 	fill: var(--colorLandWithStudentHover);;
 	cursor: pointer;
@@ -316,16 +261,6 @@ html, body {
 	display:flex;
 }
 
-
-/* GROUPE A et B (css), c'est cet id qui vous concerne, vous aurez certainement à rajouter d'autres ids ou class pour gérer l'affichage des éléments de votre page
-
-
-
-
-
-
-
-*/
 #projectPage{
 	background-color: var(--colorProjectPage);	
 	height:93%;
@@ -339,17 +274,6 @@ html, body {
 	display:flex;
 }
 
-
-
-/* GROUPE C et D (css), c'est cet id qui vous concerne, vous aurez certainement à rajouter d'autres ids ou class pour gérer l'affichage des éléments de votre page
-
-
-
-
-
-
-
-*/
 #partnersPage{
 	background-color: var(--colorPartnersPage);	
 	height:93%;
@@ -363,17 +287,6 @@ html, body {
 	display:flex;
 }
 
-
-
-/* GROUPE E et F (css), c'est cet id qui vous concerne, vous aurez certainement à rajouter d'autres ids ou class pour gérer l'affichage des éléments de votre page
-
-
-
-
-
-
-
-*/
 #creditsPage{
 	background-color: var(--colorCreditsPage);	
 	height:93%;
@@ -410,81 +323,105 @@ html, body {
 }	
 
 
-
-/*GROUPE G ET H : >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-
-le css vous concernant est à partir de là jusqu'au prochain commentaire
-
-
-
-
-*/
-
-
 #identityDiv{
-	
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	height: 20%;
+	width:97%;
+	margin:1.5%;
+	background-color: var(--colorIdentityCard);
+	color: var(--colorIdentityCardText);
+	border-radius:2vh;
 }
 
 #photoImg{
-	/* à changer */
-	width: 5vmin;
+	max-height: 100%;
+	border-radius: 15%;
+	transform: rotate(-10deg);
 }
 
 #identityInfosDiv{
-	
+	height:100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: start;
+	padding-left:0px;
+	width:75%;
+	font-size: 3vmin;
 }
 
 #countryDiv{
-	
+	height:18%;
+	padding-bottom:1vmin;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items:center;
 }
 
 #country{
-	
+	margin-left:1vh;
+	font-size:90%;
+	font-weight:300;
 }
 
 #flagImg{
-	/* à changer */
-	width: 5vmin;
+	height: 100%;
+	border-radius:10%;
 }
 
 #nameDiv{
-	
+	height:23%;
+	font-weight: bold;
 }
 
+#nameDiv span{
+}
 
 #mainInstrumentDiv{
-	
+	font-style: italic;
+	font-size:85%;
 }
 
 #otherInstrumentsDiv{
-	
+	width:100%;
+	font-size:75%;
+	overflow: hidden;
+    white-space: nowrap;
+	padding-bottom: 1vmin;
 }
 
 
 .bloc{
-	
+	width:100%;
+	height: fit-content;	
+	margin-top:5%;	
 }
 
 .label{
-	
+	font-size: 70%;	
+	font-weight: 500;
+	transform: rotate(1deg);
+	padding-right:10%;
+	text-align: right;
+	color: var(--colorLabelText);
 }
 .textDescription{
-	
+	width: calc(94% - 2vmin);
+	height: fit-content;
+	margin-left:3%;
+	margin-right:3%;
+	margin-top: 1%;
+	background-color: var(--colorDescription);
+	border-radius:2vh;
+	text-align:justify;
+	color: var(--colorDescriptionText);
+	padding: 1vmin;
+	font-size: 70%;	
+	font-weight: 300;
 }
-
-
-
-/* FIN GROUPE G ET H 
-
-
-
-
-
-
-
-
-*/
 
 
 
