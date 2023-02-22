@@ -3,11 +3,11 @@
 	--colorCharte1: #ef3c23;
 	--colorCharte2: #3053a3;
 	--colorCharte3: #faca2c;
-	--colorTopMenu: #3053a3;
-	--colorBotMenu: #ef3c23;
+	--colorTopMenu: #374da8;
+	--colorBotMenu: #374da8;
 	--colorBackground: black;
 	--colorMapSea: #374da8;
-	--colorCountryName: lightSlateGray;
+	--colorCountryName: #374da8;
 	--colorCountryNameText: white;
 	--colorLand: #a9e3da;
 	--colorLandHover: #a9e3da;
@@ -27,7 +27,7 @@
 	--topMenuHeight: 6vh;
 	--avatarSize: 7.5vmin;
 	--portraitBotMenuHeight: 15vh;
-	--landscapeBotMenuHeight: 13vh;
+	--landscapeBotMenuHeight: 15vh;
 }
 
 html, body {
@@ -122,6 +122,52 @@ html, body {
 }
 
 #closeHamburger.visible:hover{
+	width: calc(var(--avatarSize) * 0.95);
+	fill: rgba(255, 255, 255, 1);
+	cursor: pointer;
+}
+
+#zoomInButtonDiv{
+	position: absolute;	
+	top: calc(var(--avatarSize) * 0.3 + 7%);
+	right: calc(2 * var(--avatarSize) * 0.3 + var(--avatarSize));
+	width:var(--avatarSize);
+	height:var(--avatarSize);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#zoomInButton{
+	width: calc(var(--avatarSize) * 0.8);
+	fill: rgba(255, 255, 255, 0.7);
+	transition: all 0.2s ease-in;
+}
+
+#zoomInButton:hover{
+	width: calc(var(--avatarSize) * 0.95);
+	fill: rgba(255, 255, 255, 1);
+	cursor: pointer;
+}
+
+#zoomOutButtonDiv{
+	position: absolute;	
+	top: calc(var(--avatarSize) * 0.3 + 7%);
+	right: calc(var(--avatarSize) * 0.3);
+	width:var(--avatarSize);
+	height:var(--avatarSize);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#zoomOutButton{
+	width: calc(var(--avatarSize) * 0.8);
+	fill: rgba(255, 255, 255, 0.7);
+	transition: all 0.2s ease-in;
+}
+
+#zoomOutButton:hover{
 	width: calc(var(--avatarSize) * 0.95);
 	fill: rgba(255, 255, 255, 1);
 	cursor: pointer;
