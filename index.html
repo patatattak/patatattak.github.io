@@ -20,17 +20,24 @@
 			<div id="logoDiv">
 				<img src="images/Ethno France 22 faca2c.png" id="logo" alt="logo">
 			</div>		
-				<!--
-				
-				
-				GROUPE I (html)   >>>>>		
-						
-				
-				codez dans cette div
-				(pour le css, c'est à vous de créer vos propres ids/class pour gérer l'affichage)
-				
-				-->			
-		</div>		
+				<div id="menuVertical" class="vertical">
+			  <a id="closeBtn" href="#" class="close">×</a>
+			  <ul>
+			    <li><a href="#">futur mode sombre</a></li>
+			    <li><a href="#" id=menuProjet>projet</a></li>
+			    <li><a href="#" id=menuPartenaire>partenaire</a></li>
+			    <li><a href="#" id="menuCredit">crédit</a></li>
+			  </ul>
+			</div>
+
+			<a href="#" id="openBtn">
+			  <span class="burger-icon">
+			    <span></span>
+			    <span></span>
+			    <span></span>
+			  </span>
+			</a>	
+			</div>		
 		<div id="mainZone">
 			<div id="mapZone">
 				<div id="closeBurgerDiv">
@@ -397,6 +404,11 @@
 	const closeHamburger = document.getElementById("closeHamburger");
 	const zoomInButton = document.getElementById("zoomInButton");
 	const zoomOutButton = document.getElementById("zoomOutButton");
+	var vertical = document.getElementById("menuVertical");
+	var openBtn = document.getElementById("openBtn");
+	var closeBtn = document.getElementById("closeBtn");
+
+
 	// variables d'ajustement pour l'affichage de la carte
 	const zoomStrength = 0.3;
 	const zoomCountryMargin = 0.15;
@@ -406,6 +418,8 @@
 		width: 1027,
 		height: 670
 	};
+	
+	
 	
 	// initialisation de la viewBox de la carte et variables diverses
 	let currentViewBox = Object.assign({}, fullViewBox);
@@ -428,7 +442,8 @@
 		window.onresize = (event) => {
 			setRealSize();
 		};
-		
+		openBtn.onpointerup = openNav;
+		closeBtn.onpointerup = closeNav;
 		//trick pour avoir la bonne hauteur de viewport sur mobile
 		setRealSize();
 		
@@ -844,14 +859,12 @@
 	
 	//fonction appelée quand on bouge la molette de la souris (pour le zoom).
 	function docWheel(e){
-		if(state == "nav"){
-			if(e.deltaY < 0){    
-				zoomIn();
-			}
-			else{    
-				zoomOut();
-			}
-		}		
+		if(e.deltaY < 0){    
+			zoomIn();
+		}
+		else{    
+			zoomOut();
+		}	
 	}
 	
 	//fonction appelée quand on clique sur le closeBurger
@@ -883,82 +896,86 @@
 		}
 	}
 	//fonction appelée quand on veut zoomer (avec la molette)
-	function zoomIn(){		
-		let center = {
-			x: currentViewBox.left + currentViewBox.width / 2,
-			y: currentViewBox.top + currentViewBox.height / 2
-		};
-		let rect = mapImage.getBoundingClientRect();
-		let ratio = rect.width / rect.height;
-		console.log(ratio);
-		let newWidth = currentViewBox.width - currentViewBox.width * zoomStrength;
-		//let newHeight = currentViewBox.height - currentViewBox.height * zoomStrength;
-		
-		
-		if(newWidth < 0.1 * fullViewBox.width){
-			newWidth = 0.1 * fullViewBox.width;
+	function zoomIn(){	
+		if(state == "nav"){
+			let center = {
+				x: currentViewBox.left + currentViewBox.width / 2,
+				y: currentViewBox.top + currentViewBox.height / 2
+			};
+			let rect = mapImage.getBoundingClientRect();
+			let ratio = rect.width / rect.height;
+			console.log(ratio);
+			let newWidth = currentViewBox.width - currentViewBox.width * zoomStrength;
+			//let newHeight = currentViewBox.height - currentViewBox.height * zoomStrength;
+			
+			
+			if(newWidth < 0.1 * fullViewBox.width){
+				newWidth = 0.1 * fullViewBox.width;
+			}
+			let newHeight = newWidth / ratio;
+			if(newHeight < 0.1 * fullViewBox.height){
+				newHeight = 0.1 * fullViewBox.height;
+				newWidth = newHeight * ratio;
+			}
+			if(newHeight > 670){
+				newHeight = 670;
+			}
+			currentViewBox = {
+				left: center.x - newWidth / 2,
+				top: center.y - newHeight / 2,
+				width: newWidth,
+				height: newHeight
+			};			
+			verifyViewBoxMove();
+			console.log(getViewBoxString());
+			gsap.to(svgMap, {
+				duration: 0.3,
+				attr: {
+					viewBox: getViewBoxString()
+				},
+				ease: "power2.inOut"
+			});	
 		}
-		let newHeight = newWidth / ratio;
-		if(newHeight < 0.1 * fullViewBox.height){
-			newHeight = 0.1 * fullViewBox.height;
-			newWidth = newHeight * ratio;
-		}
-		if(newHeight > 670){
-			newHeight = 670;
-		}
-		currentViewBox = {
-			left: center.x - newWidth / 2,
-			top: center.y - newHeight / 2,
-			width: newWidth,
-			height: newHeight
-		};			
-		verifyViewBoxMove();
-		console.log(getViewBoxString());
-		gsap.to(svgMap, {
-			duration: 0.3,
-			attr: {
-				viewBox: getViewBoxString()
-			},
-			ease: "power2.inOut"
-		});	
 	}
 	//fonction appelée quand on veut dézoomer avec la molette
 	function zoomOut(){
-		let center = {
-			x: currentViewBox.left + currentViewBox.width / 2,
-			y: currentViewBox.top + currentViewBox.height / 2
-		};
-		let rect = mapImage.getBoundingClientRect();
-		let ratio = rect.width / rect.height;
-		console.log(ratio);
-		let newWidth = currentViewBox.width + currentViewBox.width * zoomStrength;
-		let newHeight = newWidth / ratio;
-		if(newWidth > fullViewBox.width){
-			newWidth = fullViewBox.width;
-			newHeight = fullViewBox.height;
+		if(state == "nav"){
+			let center = {
+				x: currentViewBox.left + currentViewBox.width / 2,
+				y: currentViewBox.top + currentViewBox.height / 2
+			};
+			let rect = mapImage.getBoundingClientRect();
+			let ratio = rect.width / rect.height;
+			console.log(ratio);
+			let newWidth = currentViewBox.width + currentViewBox.width * zoomStrength;
+			let newHeight = newWidth / ratio;
+			if(newWidth > fullViewBox.width){
+				newWidth = fullViewBox.width;
+				newHeight = fullViewBox.height;
+			}
+			
+			
+			if(newHeight > fullViewBox.height){
+				newHeight = fullViewBox.height;
+				newWidth = fullViewBox.width;
+			}
+			currentViewBox = {
+				left: center.x - newWidth / 2,
+				top: center.y - newHeight / 2,
+				width: newWidth,
+				height: newHeight
+			};
+			verifyViewBoxMove();
+			console.log(getViewBoxString());
+			
+			gsap.to(svgMap, {
+				duration: 0.3,
+				attr: {
+					viewBox: getViewBoxString()
+				},
+				ease: "power2.inOut"
+			});		
 		}
-		
-		
-		if(newHeight > fullViewBox.height){
-			newHeight = fullViewBox.height;
-			newWidth = fullViewBox.width;
-		}
-		currentViewBox = {
-			left: center.x - newWidth / 2,
-			top: center.y - newHeight / 2,
-			width: newWidth,
-			height: newHeight
-		};
-		verifyViewBoxMove();
-		console.log(getViewBoxString());
-		
-		gsap.to(svgMap, {
-			duration: 0.3,
-			attr: {
-				viewBox: getViewBoxString()
-			},
-			ease: "power2.inOut"
-		});		
 	}	
 	
 	//fonction pour formater en texte la viewBox demandée
@@ -1114,6 +1131,76 @@
 		}		
 	}
 	
+	function openNav() {
+	  vertical.classList.add("active");
+	}
+
+
+	function closeNav() {
+	  vertical.classList.remove("active");
+	}
+
+	let creditMenuButton = document.getElementById("menuCredit");
+	creditMenuButton.onpointerup = Ccredit;
+
+
+	function Ccredit(){
+		if(state != "credits"){
+					displayCreditsPage();
+		}
+		else{
+			hidePanel();
+			if(avatarsOnCountry.classList.contains("visible")){
+				state = "country";
+			}
+			else{
+				state = "nav";
+			}
+		}
+		closeNav();
+	}
+
+	let partenaireMenuButton = document.getElementById("menuPartenaire");
+	partenaireMenuButton.onpointerup = Ppartenaire;
+
+
+	function Ppartenaire(){
+		if(state != "partners"){
+					displayPartnersPage();
+		}
+		else{
+			hidePanel();
+			if(avatarsOnCountry.classList.contains("visible")){
+				state = "country";
+			}
+			else{
+				state = "nav";
+			}
+		}
+		closeNav();
+	}
+
+
+
+	let projetMenuButton = document.getElementById("menuProjet");
+	projetMenuButton.onpointerup = Pprojet;
+
+
+	function Pprojet(){
+		if(state != "project"){
+					displayProjectPage();
+		}
+		else{
+			hidePanel();
+			if(avatarsOnCountry.classList.contains("visible")){
+				state = "country";
+			}
+			else{
+				state = "nav";
+			}
+		}
+		closeNav();
+	}
 	
 </script>
 </body>
