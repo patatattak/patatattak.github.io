@@ -26,8 +26,8 @@
 	--colorCreditsPage: yellow;
 	--topMenuHeight: 6vh;
 	--avatarSize: 7.5vmin;
-	--portraitBotMenuHeight: 15vh;
-	--landscapeBotMenuHeight: 15vh;
+	--botMenuHeight: 15vh;
+	--mainMargin:1vmin;
 }
 
 html, body {
@@ -49,16 +49,16 @@ html, body {
 
 .container{
 	width: calc(100% - 2vmin);
-	height:calc(100 * var(--vh) - 2vmin);
+	height:calc(100 * var(--vh) - 2 * var(--mainMargin));
 	overflow:hidden;
-	border-radius: 1vmin;
-	margin: 1vmin;
+	border-radius: var(--mainMargin);
+	margin: var(--mainMargin);
 	display: flex;
 	flex-direction: column;	
 }
 
 #topMenu{
-	width:100%;
+	width:calc(100% - 2vmin);
 	height: var(--topMenuHeight);
 	background-color: var(--colorTopMenu);
 	display: flex;
@@ -77,26 +77,28 @@ html, body {
 
 #logo{
 	height: calc(var(--topMenuHeight) * 0.8);
-	margin: auto;
+	width:auto;
+	margin-right: 1vmin;
 }
 
 .vertical {
-  height: 100%;
-  width: 40%;
+  height: calc(100% - 2 * var(--mainMargin) - var(--topMenuHeight) - var(--botMenuHeight));
+  min-width: 20%;
   position: fixed;
   z-index: 1;
-  top: 0;
-  left: -40%;
+  top: calc(var(--topMenuHeight) + var(--mainMargin));
+  left: -50%;
   background-color: #e8e8e8;
-  padding-top: 4%;
-  transition: left 0.5s ease;
+  transition: left 0.5s ease;  
+  border-radius: 0 var(--mainMargin) var(--mainMargin) 0;
 }
 
 
 .vertical a {
-  padding: 8px 8px 8px 32px;
+  padding: 2%;
+  padding-top: 15%;
   text-decoration: none;
-  font-size: 140%;
+  font-size: 115%;
   color: #818181;
   display: block;
   transition: 0.3s;
@@ -109,20 +111,20 @@ html, body {
 .vertical ul {
   list-style-type: none;
   padding: 0;
-  margin: 0;
+  margin: 2%;
 }
 
 
 .vertical.active {
-  left: 0;
+  left: var(--mainMargin);
 }
 
 
 .vertical .close {
   position: absolute;
   top: 0;
-  right: 10%;
-  font-size: 100%;
+  right: 0%;
+  font-size: 200%;
 }
 
 
@@ -137,7 +139,7 @@ html, body {
 #mainZone{
 	width:100%;
 	background-color: yellow;
-	height: calc(100% - var(--topMenuHeight) - var(--landscapeBotMenuHeight));
+	height: calc(100% - var(--topMenuHeight) - var(--botMenuHeight));
 	display: flex;
 	flex-direction: column;
 	position: relative;
@@ -427,16 +429,117 @@ html, body {
 
 */
 #projectPage{
-	background-color: var(--colorProjectPage);	
+	
+	background: linear-gradient(#42251b,#8e2516);
+	color : white;
 	height:93%;
 	width:100%;
 	overflow-y:auto;
 	overflow-x:hidden;
 	display:none;
+  	margin: 0 auto;
+}
+
+#projectPage h1{
+	font-size: 140%;
+	text-align: center;
+	color :#ef3c23;
+	font-weight: 400;
+}
+
+#projectPage h1:hover{
+	filter: drop-shadow(0 0 0.75rem #ef3c23);
+	color : #f8aeb2;
+  	text-decoration: underline;
+}
+
+#projectPage span{
+  	font-weight: 500;
+}
+
+
+#projectPage p.FontOpacity{
+	font-weight: 900;
+	margin: -100px 200px 40px;
+	font-size: 160%;
+	opacity: 0.25;
+}
+#projectPage .BgImg{
+	margin: -200px 100px 40px;
+	opacity: 0.2;
+	width : 750px;
+	height : 400px;
+}
+
+
+#projectPage h3{
+	color : #ef3c23;
+  	font-style: italic;
+	font-size: 100%;
+	margin: 0px 20px 0px;
+}
+
+#projectPage h3.right{
+	text-align: right;
+}
+
+#projectPage h3.left{
+	text-align: left;
+}
+
+#projectPage h3:hover{
+	text-decoration: underline;
+	filter: drop-shadow(0 0 0.75rem #ef3c23);
+	color : #f8aeb2;
+  	text-decoration: underline;
+}
+
+#projectPage p{
+	text-align: justify;
+	font-size: 80%;
+	padding: 10px 40px;
+}
+
+#projectPage li{
+	font-size: 80%;
+}
+
+/* Les lignes ci dessous proviennent de : https://stackoverflow.com/questions/54702124/rainbow-text-animation-using-only-cssrainbow_text_animated */
+#projectPage .b{
+	text-align: center;
+	text-decoration: underline;
+	background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	animation: rainbow_animation 6s ease-in-out infinite;
+	background-size: 400% 100%;
+	font-weight: bold;
+}
+
+@keyframes rainbow_animation {
+	0%,100% {
+		background-position: 0 0;
+	}
+
+	50% {
+		background-position: 100% 0;
+	}
+}
+/* Fin des lignes glanées sur StackOverflow */
+#projectPage .b2{
+	text-align: center;
+	text-decoration: underline;
+	background: linear-gradient(to right, #ef3c23, #ef3c23);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	background-size: 50% 100%;
+	font-weight: bold;
 }
 
 #projectPage.visible{
-	display:flex;
+	display:block;
 }
 
 
@@ -457,13 +560,60 @@ html, body {
 	overflow-y:auto;
 	overflow-x:hidden;
 	display:none;
+	color:white;
 }
 
 #partnersPage.visible{
-	display:flex;
+	display:block;
 }
 
 
+
+
+#ethno{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items: center
+}
+
+#ethno img{
+	max-width:50%;
+}
+
+#partnersPage p{
+	font-size: 80%;
+	font-weight: 400;
+}
+
+#partnersPage span{
+	font-weight: 500;
+}
+
+#partnersPage a{
+	color:#EF3C23;
+}
+
+.partner{
+	display:flex;
+	justify-content:space-around;
+}
+
+.logoPartnerDiv{
+	width:35%;
+	display: flex;
+	justify-content: flex-end;
+	align-items:center;
+}
+
+.logoPartnerDiv img{
+	max-height: var(--avatarSize);
+	max-width: calc(var(--avatarSize) * 2.5);	
+}
+
+.textPartnerDiv{
+	width:55%;
+}
 
 /* GROUPE E et F (css), c'est cet id qui vous concerne, vous aurez certainement à rajouter d'autres ids ou class pour gérer l'affichage des éléments de votre page
 
@@ -592,7 +742,7 @@ le css vous concernant est à partir de là jusqu'au prochain commentaire
 #botMenu{
 	background-color: var(--colorBotMenu);
 	width: 100%;
-	height: var(--landscapeBotMenuHeight);
+	height: var(--botMenuHeight);
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;
@@ -622,12 +772,16 @@ le css vous concernant est à partir de là jusqu'au prochain commentaire
 
 @media only screen and (orientation: portrait) {
 	
+	html, body {
+		font-size: 4vmin;
+	}
+	
 	#botMenu{
-		height: var(--portraitBotMenuHeight);
+		height: var(--botMenuHeight);
 	}
 	
 	#mainZone{
-		height: calc(100% - var(--topMenuHeight) - var(--portraitBotMenuHeight));
+		height: calc(100% - var(--topMenuHeight) - var(--botMenuHeight));
 		flex-direction: row;
 	}
 	
