@@ -12,20 +12,21 @@
 	--colorLand: #a9e3da;
 	--colorLandHover: #a9e3da;
 	--colorLandWithStudentHover: orange;
-	--colorSelectedLand: white;
+	--colorSelectedLand: #ef3c23;
 	--colorStudentInfos: rgb(255, 255, 200);
-	--colorBackZone: darkGray;
-	--colorBackZoneText: white;
+	--colorBackZone: #ef3c23;
 	--colorIdentityCard: beige;
 	--colorIdentityCardText: black;
 	--colorLabelText: black;
 	--colorDescription: lightSlateGray;
 	--colorDescriptionText: beige;
-	--colorProjectPage: red;
-	--colorPartnersPage: purple;
-	--colorCreditsPage: #42251B;
+	--colorProjectPage: #374da8;
+	--colorPartnersPage: #374da8;
+	--colorCreditsPage: #374da8;
+	--colorButton: rgba(255, 255, 255, 0.7);
+	--colorButtonHover: white;
 	--topMenuHeight: 6vh;
-	--avatarSize: 7.5vmin;
+	--avatarSize: 7.8vmin;
 	--botMenuHeight: 15vh;
 	--mainMargin:1vmin;
 }
@@ -132,12 +133,18 @@ html, body {
 	margin-left:1vmin;
 }
 
+
 .burger-icon span {
   display: block;
   width: 100%;
   height: 12%;
-  background-color: black;
+  background-color: var(--colorButton);
   margin: 15% 0;
+  transition: all 0.2s;
+}
+
+.burger-icon:hover span{
+	background-color: var(--colorButtonHover);
 }
 
 #lightDarkDiv{
@@ -185,16 +192,16 @@ html, body {
 .button{
 	width: calc(var(--avatarSize) * 0.8);
 	fill: rgba(255, 255, 255, 0);  
-	transition: all 0.2s ease-in;
+	transition: all 0.2s;
 }
 
 .button.visible{
-	fill: rgba(255, 255, 255, 0.7);
+	fill: var(--colorButton);
 }
 
 .button.visible:hover{
 	width: calc(var(--avatarSize) * 0.95);
-	fill: rgba(255, 255, 255, 1);
+	fill: var(--colorButtonHover);
 	cursor: pointer;
 }
 
@@ -359,8 +366,8 @@ html, body {
 	flex-direction:column;
 	align-items: center;
 	justify-content: center;
-	width: var(--avatarSize);  
-	height: var(--avatarSize);			
+	width: calc(1.4 * var(--avatarSize));  
+	height: calc(1.4 * var(--avatarSize));			
 	opacity: 0;
 	transition: 0.3s opacity 0.5s;
 }
@@ -377,11 +384,11 @@ html, body {
 }
 
 .countryAvatarZone.visible img{  
-	width: calc(var(--avatarSize) * 0.8);	
+	width: calc(var(--avatarSize) * 0.8 * 1.4);	
 }
 
 .countryAvatarZone img.over{
-	width: calc(var(--avatarSize) * 0.95);
+	width: calc(var(--avatarSize) * 0.95 * 1.4);
 }
 
 #sidePanel{
@@ -424,9 +431,8 @@ html, body {
 
 */
 #projectPage{
-	
-	background: linear-gradient(#42251b,#8e2516);
-	color : white;
+	background-color:var(--colorProjectPage);	
+	color : var(--colorButtonHover);
 	height:93%;
 	width:100%;
 	overflow-y:auto;
@@ -442,23 +448,10 @@ html, body {
 	font-weight: 400;
 }
 
-#projectPage h1:hover{
-	filter: drop-shadow(0 0 0.75rem #ef3c23);
-	color : #f8aeb2;
-  	text-decoration: underline;
-}
-
 #projectPage span{
   	font-weight: 500;
 }
 
-
-#projectPage p.FontOpacity{
-	font-weight: 900;
-	margin: -100px 200px 40px;
-	font-size: 160%;
-	opacity: 0.25;
-}
 #projectPage .BgImg{
 	margin: -200px 100px 40px;
 	opacity: 0.2;
@@ -482,12 +475,6 @@ html, body {
 	text-align: left;
 }
 
-#projectPage h3:hover{
-	text-decoration: underline;
-	filter: drop-shadow(0 0 0.75rem #ef3c23);
-	color : #f8aeb2;
-  	text-decoration: underline;
-}
 
 #projectPage p{
 	text-align: justify;
@@ -499,39 +486,6 @@ html, body {
 	font-size: 80%;
 }
 
-/* Les lignes ci dessous proviennent de : https://stackoverflow.com/questions/54702124/rainbow-text-animation-using-only-cssrainbow_text_animated */
-#projectPage .b{
-	text-align: center;
-	text-decoration: underline;
-	background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: transparent;
-	animation: rainbow_animation 6s ease-in-out infinite;
-	background-size: 400% 100%;
-	font-weight: bold;
-}
-
-@keyframes rainbow_animation {
-	0%,100% {
-		background-position: 0 0;
-	}
-
-	50% {
-		background-position: 100% 0;
-	}
-}
-/* Fin des lignes glanées sur StackOverflow */
-#projectPage .b2{
-	text-align: center;
-	text-decoration: underline;
-	background: linear-gradient(to right, #ef3c23, #ef3c23);
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: transparent;
-	background-size: 50% 100%;
-	font-weight: bold;
-}
 
 #projectPage.visible{
 	display:block;
@@ -555,7 +509,7 @@ html, body {
 	overflow-y:auto;
 	overflow-x:hidden;
 	display:none;
-	color:white;
+	color:var(--colorButtonHover);
 }
 
 #partnersPage.visible{
@@ -621,16 +575,17 @@ html, body {
 
 */
 #creditsPage{
-	color: white;
+	color: var(--colorButtonHover);
 	text-align: center;
 	background-color: var(--colorCreditsPage);	
 	height:93%;
-	width:100%;
+	width:90%;
 	overflow-y:auto;
 	overflow-x:hidden;
 	display:none;
 	font-size: 80%;
 	font-weight: 400;
+	padding: 0 5%;
 }
 
 #creditsPage.visible{
@@ -655,12 +610,12 @@ html, body {
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	color:var(--colorBackZoneText);
+	color:var(--colorButton);
 	transition: all 0.2s ease-out;
 }
 
 #backZone:hover{
-	background-color:purple;
+	color:var(--colorButtonHover);
 	cursor: pointer;
 }	
 
@@ -831,7 +786,7 @@ margin-left:5%;
 @media only screen and (orientation: portrait) {
 	
 	html, body {
-		font-size: 4vmin;
+		font-size: 3.5vmin;
 	}
 	
 	#botMenu{
