@@ -6,9 +6,9 @@
 	--colorTopMenu: #374da8;
 	--colorBotMenu: #374da8;
 	--colorBackground: black;
-	--colorMapSea: #374da8;
+	--colorMapSea: white;
 	--colorCountryName: #374da8;
-	--colorCountryNameText: #faca2c;
+	--colorCountryNameText: white;
 	--colorLand: #a9e3da;
 	--colorLandHover: #a9e3da;
 	--colorLandWithStudentHover: orange;
@@ -40,7 +40,7 @@ html, body {
 	position: relative;
 	overflow-y: hidden;
 	overflow-x: hidden;	
-	background-color: black;
+	background-color: var(--colorBackground);
 	font-family: "Montserrat", sans-serif;
 	font-weight: 400;
 	font-size: 3vmin;
@@ -148,7 +148,19 @@ html, body {
 	align-items:center;
 }
 
+#lightDarkButton{
+	height:85%;
+	width:85%;
+	fill: rgba(255, 255, 255, 0.7);
+	transition: all 0.2s;
+}
 
+#lightDarkButton:hover{
+	height:95%;
+	width:95%;
+	fill: rgba(255, 255, 255, 1);
+	cursor: pointer;
+}
 
 
 #mainZone{
@@ -182,17 +194,17 @@ html, body {
 	height:var(--avatarSize);
 }
 
-.button{
+#closeHamburger{
 	width: calc(var(--avatarSize) * 0.8);
 	fill: rgba(255, 255, 255, 0);  
 	transition: all 0.2s ease-in;
 }
 
-.button.visible{
+#closeHamburger.visible{
 	fill: rgba(255, 255, 255, 0.7);
 }
 
-.button.visible:hover{
+#closeHamburger.visible:hover{
 	width: calc(var(--avatarSize) * 0.95);
 	fill: rgba(255, 255, 255, 1);
 	cursor: pointer;
@@ -209,7 +221,17 @@ html, body {
 	justify-content: center;
 }
 
+#zoomInButton{
+	width: calc(var(--avatarSize) * 0.8);
+	fill: rgba(255, 255, 255, 0.7);
+	transition: all 0.2s ease-in;
+}
 
+#zoomInButton:hover{
+	width: calc(var(--avatarSize) * 0.95);
+	fill: rgba(255, 255, 255, 1);
+	cursor: pointer;
+}
 
 #zoomOutButtonDiv{
 	position: absolute;	
@@ -222,7 +244,17 @@ html, body {
 	justify-content: center;
 }
 
+#zoomOutButton{
+	width: calc(var(--avatarSize) * 0.8);
+	fill: rgba(255, 255, 255, 0.7);
+	transition: all 0.2s ease-in;
+}
 
+#zoomOutButton:hover{
+	width: calc(var(--avatarSize) * 0.95);
+	fill: rgba(255, 255, 255, 1);
+	cursor: pointer;
+}
 
 #countryName{
 	background-color: var(--colorCountryName);
@@ -676,111 +708,178 @@ le css vous concernant est à partir de là jusqu'au prochain commentaire
 
 */
 
-#studentPage
-{background-color:#42251b;
-font-size:75%;
-	font-family: Monserrat,sans-serif;}
-
-
-
-#identityDiv{
-display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	margin:5%;
-	margin-top:7%;
-	margin-bottom:10%;
-	border-style: solid;
-	border-width:10px;
-	border-color:#3053a3;
-	border-spacing: 10px;
-	border-radius: 10%;
-	background-color:#3053a3;
-	color:white;
-
-}
-
+#student.Div{ 
+  background-color: var(--colorStudentInfos); 
+} 
+#identityDiv{ 
+	text-align: center;
+  position: sticky;  
+  float: left; 
+  height: 250vh;
+  width: 30%;  
+  background-color: var(--colorIdentityCard); 
+  margin: 0 1% 1% 0; 
+} 
+#descriptionDiv{ 
+  padding: 1%; 
+  margin-top: 10%; 
+} 
 #photoImg{
-	height: 150px;
-	border-radius:20%;
 
-	
-	
+  width: 70%;
+  animation: rotate 0.5s ease-in-out;
+  border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+filter: drop-shadow(20px 10px 0  var(--colorIdentityCardText));
+
 }
 
-#identityInfosDiv{
-flex-direction:row;	
+#photoImg::before {
+	width: 70%;
+	position: relative;
+	left: 2%;
+	top: 10%;
+	border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
+	background-color: red;
+
+
 }
 
-#countryDiv{
-	height:18%;
-	padding-bottom:1vmin;
-	display: flex;
-	flex-direction: row;
-	align-items:center;
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+#identityInfosDiv {
+
+	padding: 50% 0% 40% 0%;
+	margin: 20%  10%  10% 5%; 
+  width: 90%;
+ 
+  background-color: var(--colorBackZoneText); 
+  animation-name: slideDown;
+  animation-duration: 3s;
+  animation-delay: -1s;
+  z-index: 1;
+  border-radius: 10px;
+  filter: drop-shadow(5px 5px 0 var(--colorIdentityCardText));
+  font-size: 100%; 
+  font-weight: bold; 
+  font-family: 'Montserrat', sans-serif;
+
 }
 
-#country{
-padding-left:3%;
+
+/*
+#studentDiv:hover + #identityInfosDiv {
+  opacity: 1;
+  transform: translateY(0);
+}
+*/
+
+@keyframes slideDown {
+   0%   {height: 0%;}
+   100% {height: 20%}
+ 
 }
 
-#flagImg{
+/*
+#photoImg:hover + #identityInfosDiv {
+  visibility: visible;
 
-	width: 7vmin;
-	border-radius: 20%;
-	padding-right:0%;
 }
-#nameDiv{	
-font-weight: regular;
+*/
+
+#countryDiv{ 
+}
+#country{ 
+}
+#flagImg{ 
+  width: 5vmin; 
+  border-color: var(--colorIdentityCardText);
+  border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
+  box-shadow: 2px 2px 0 #0782ba;
+} 
+#nameDiv{ 
+  font-family: 'Montserrat', sans-serif; 
+  font-size: 1.8rem;
+  font-weight: bold; 
+  position: absolute; 
+  bottom: 138%; 
+  left: 100%; 
+  width: 300%; 
+  visibility: visible;
+} 
+#mainInstrumentDiv{ 
+  padding: 1%:
+   display: inline-block;
+  
+
+} 
+#mainInstrumentDiv:before {
+  content: "\2022";
+  color: #0782ba;
+  display: inline-block;
+  width: 1em;
+  margin-right: 5px;
+  font-size: 200%;
+  
+
+}
 }
 
+#otherInstrumentsDiv{ 
+  padding: 1%; 
+}
+#otherInstrumentsDiv:before {
+  content: "\2022";
+  color: #0782ba;
+  display: inline-block;
+  width: 1em;
+  margin-right: 5px;
+  font-size: 200%;
+  vertical-align: middle; 
 
 
-#mainInstrumentDiv{
-font-style:light;
-font-size:80%;
-padding:5%;
-padding-bottom:1%;
 }
 
-#otherInstrumentsDiv{
-	
-font-size:77%;
-padding:5%;
-padding-top: 1%;
-
+#linkDiv {
+	padding: 1%;
 }
 
 
 .bloc{
-	margin-top:5%;	
-	size:80%;
-	font-family: Monserrat,sans-serif;
-	color:white;
-
+	margin-bottom: 10%;
+	margin-top: 5%;
+	margin-bottom: 1%;
 }
 
 .label{
-	font-weight: regular;
-	text-align:left;
-color:#ef3c23;
-margin-left:5%;
+	color: #0782ba;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-bottom: 2px solid #0782ba;
+  margin-bottom: 20px;
 }
-
-.label:hover
-{color:#f8aeb2;}
-
 .textDescription{
-	font-weight:light;
-	margin:5%;
-	margin-top:5%;
-	margin-bottom:7%;
-	border-style: solid;
-	border-width:7px;
-	border-color:#3053a3;
-	border-spacing: 7px;
-	border-radius: 20%;
-	background-color:#3053a3;
+	  background-color: #0eb19e;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: justify;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 20px auto;
+  max-width: 600px;
+
+	
 }
 
 /* FIN GROUPE G ET H 

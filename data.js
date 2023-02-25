@@ -52,7 +52,7 @@ var jsonData = {
 			instrumentText: "La Voix m'a permis de grandir, et de me relier à mon corps. Elle est le reflet de ce qui bouillonne en moi, et je souhaite l'offrir au Monde, avec amour et présence.",
 			presentationText: "Je suis née à Strasbourg, et me sens de plus en plus curieuse de la culture musicale française. J'ai pu découvrir les musiques des balkans, et me rapprocher de mes origines slovènes, ",
 			linkDescription: "Claire Hiegel - Erev shel shoshanim",
-			linkURL: "https://www.instagram.com/p/Ccib5GoKi63/"
+			linkURL: "https://www.instagram.com/p/Ccib5GoKi63/embed"
 		},
 		{
 			firstName: "DANIELE",
@@ -75,8 +75,8 @@ var jsonData = {
 			countryCode: "GB",
 			mainInstrument: "accordéon diatonique",
 			otherInstruments: "",
-			instrumentText: "J'ai grandi dans le Lincolnshire et je vis à Newcastle upon Tyne. J'ai étudié la musique folklorique et traditionnelle à l'université de Newcastle, où ma technique s'est épanouie sous la direction d'Andy Cutting et de Julian Sutton. Je suis maintenant éducateur et je travaille pour le programme Folkworks à Sage Gateshead. J’apprends aussi la musique traditionnelle à plein de jeunes et d’adultes dans tout le nord de l'Angleterre. J’ai aussi participé à plein d’Ethnos. Enfin, je suis aussi régulièrement en tournée avec Katie Doherty & the Navigators et Världens Band. Je suppose que je suis bien connu pour mon enthousiasme et ma présence sur scène :)",
-			presentationText: "",
+			instrumentText: "",
+			presentationText: "J'ai grandi dans le Lincolnshire et je vis à Newcastle upon Tyne. J'ai étudié la musique folklorique et traditionnelle à l'université de Newcastle, où ma technique s'est épanouie sous la direction d'Andy Cutting et de Julian Sutton. Je suis maintenant éducateur et je travaille pour le programme Folkworks à Sage Gateshead. J’apprends aussi la musique traditionnelle à plein de jeunes et d’adultes dans tout le nord de l'Angleterre. J’ai aussi participé à plein d’Ethnos. Enfin, je suis aussi régulièrement en tournée avec Katie Doherty & the Navigators et Världens Band. Je suppose que je suis bien connu pour mon enthousiasme et ma présence sur scène :)",
 			linkDescription: "Washington Square Park - The Good Tune",
 			linkURL: "https://www.youtube.com/embed/XScY1PQQku8"
 		},
