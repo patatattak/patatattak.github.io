@@ -130,7 +130,7 @@ var jsonData = {
 			instrumentText: "Coiffeuse en fourrure.",
 			presentationText: "Je n'ai pas peur de procrastiner ou d'être triste.",
 			linkDescription: "Juan Dafonte - Various percussion ensembles.",
-			linkURL: "https://youtu.be/2775E4F7Cl8"
+			linkURL: "https://www.youtube.com/embed/2775E4F7Cl8"
 		},
 		{
 			firstName: "JULIETTE",
@@ -269,7 +269,7 @@ var jsonData = {
 			country: "Chile",
 			countryCode: "CL",
 			mainInstrument: "cajón, percussions, charango",
-			otherInstruments: "congas, bongos, djembé, pandeiro, guitare, charango, basse et voix",
+			otherInstruments: "pandeiro, guitare, basse, voix",
 			instrumentText: "Le cajon est bien plus qu'une simple boîte en bois. C'est l'un des instruments les plus polyvalents qui existent. Il est très simple à jouer et en même temps très complexe et profond. ",
 			presentationText: "Je suis percussionniste et professeur de musique. Né au Chili et je vis aujourd'hui à Berlin. J'ai un lien très fort avec le Chili et la musique traditonnelle latino-américaine, mais j'adore apprendre la musique du monde entier !",
 			linkDescription: "Susana Baca - Negra Presuntuosa",

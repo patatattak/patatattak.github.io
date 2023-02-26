@@ -13,13 +13,13 @@
 	--colorLandHover: #a9e3da;
 	--colorLandWithStudentHover: orange;
 	--colorSelectedLand: #ef3c23;
-	--colorStudentInfos: rgb(255, 255, 200);
+	--colorStudentInfos: #374da8;
 	--colorBackZone: #ef3c23;
-	--colorIdentityCard: beige;
+	--colorIdentityCard: #faca2c;
 	--colorIdentityCardText: black;
-	--colorLabelText: black;
-	--colorDescription: lightSlateGray;
-	--colorDescriptionText: beige;
+	--colorLabelText: #faca2c;
+	--colorDescription: #faca2c;
+	--colorDescriptionText: black;
 	--colorProjectPage: #374da8;
 	--colorPartnersPage: #374da8;
 	--colorCreditsPage: #374da8;
@@ -44,7 +44,7 @@ html, body {
 	background-color: black;
 	font-family: "Montserrat", sans-serif;
 	font-weight: 400;
-	font-size: 3vmin;
+	font-size: 2.8vmin;
 }
 
 
@@ -431,7 +431,7 @@ html, body {
 
 */
 #projectPage{
-	background-color:var(--colorProjectPage);	
+	background-color:var(--colorProjectPage);		
 	color : var(--colorButtonHover);
 	height:93%;
 	width:100%;
@@ -441,10 +441,12 @@ html, body {
   	margin: 0 auto;
 }
 
+
+
 #projectPage h1{
 	font-size: 140%;
 	text-align: center;
-	color :#ef3c23;
+	color:var(--colorCharte1);
 	font-weight: 400;
 }
 
@@ -452,18 +454,11 @@ html, body {
   	font-weight: 500;
 }
 
-#projectPage .BgImg{
-	margin: -200px 100px 40px;
-	opacity: 0.2;
-	width : 750px;
-	height : 400px;
-}
-
-
 #projectPage h3{
-	color : #ef3c23;
+	color:var(--colorCharte1);
   	font-style: italic;
 	font-size: 100%;
+	padding-top:4vmin;
 	margin: 0px 20px 0px;
 }
 
@@ -519,14 +514,14 @@ html, body {
 
 
 
-#ethno{
+.ethno{
 	display:flex;
 	flex-direction:column;
 	justify-content:center;
 	align-items: center
 }
 
-#ethno img{
+.ethno img{
 	margin-top:2vmin;
 	max-width:20%;
 }
@@ -631,40 +626,51 @@ le css vous concernant est à partir de là jusqu'au prochain commentaire
 
 */
 
-#studentPage
-{background-color:#42251b;
-font-size:75%;
-	font-family: Monserrat,sans-serif;}
-
-
-
 #identityDiv{
-display: flex;
+	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	margin:5%;
-	margin-top:7%;
-	margin-bottom:10%;
-	border-style: solid;
-	border-width:10px;
-	border-color:#3053a3;
-	border-spacing: 10px;
-	border-radius: 10%;
-	background-color:#3053a3;
-	color:white;
-
+	height: 24%;
+	width:98%;
+	margin:1%;
+	background-color: var(--colorIdentityCard);
+	color: var(--colorIdentityCardText);
+	border-radius:2vh;
 }
 
 #photoImg{
-	height: 150px;
-	border-radius:20%;
+	max-height: 90%;
+	border-radius: 15%;
+	animation: rotate 0.3s ease-in-out;
+	border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 
+#photoImg::before {
 	
-	
+	border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
+	background-color: red;
+
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(-30deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
 }
 
 #identityInfosDiv{
-flex-direction:row;	
+	height:100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: start;
+	padding-left: 1vmin;
+	width:75%;
+	font-size: 90%;	
 }
 
 #countryDiv{
@@ -672,70 +678,80 @@ flex-direction:row;
 	padding-bottom:1vmin;
 	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
 	align-items:center;
 }
 
 #country{
-padding-left:3%;
+	margin-left:1vh;
+	font-size:85%;
+	font-weight:300;
 }
 
 #flagImg{
-
-	width: 7vmin;
-	border-radius: 20%;
-	padding-right:0%;
-}
-#nameDiv{	
-font-weight: regular;
+	height: 100%;
+	border-radius:10%;
 }
 
+#nameDiv{
+	height:23%;
+	font-weight: bold;
+}
 
+#nameDiv span{
+}
 
 #mainInstrumentDiv{
-font-style:light;
-font-size:80%;
-padding:5%;
-padding-bottom:1%;
+	font-style: italic;
+	font-size:80%;
 }
 
 #otherInstrumentsDiv{
-	
-font-size:77%;
-padding:5%;
-padding-top: 1%;
-
+	width:100%;
+	font-size:70%;
+	overflow: hidden;
+    white-space: nowrap;
+	padding-bottom: 1vmin;
 }
 
 
 .bloc{
+	width:100%;
+	height: fit-content;	
 	margin-top:5%;	
-	size:80%;
-	font-family: Monserrat,sans-serif;
-	color:white;
-
 }
 
 .label{
-	font-weight: regular;
-	text-align:left;
-color:#ef3c23;
-margin-left:5%;
+	font-size: 85%;	
+	font-weight: 500;
+	transform: rotate(1deg);
+	padding-right:10%;
+	text-align: right;
+	color: var(--colorLabelText);
+}
+.textDescription{
+	width: calc(94% - 2vmin);
+	height: fit-content;
+	margin-left:3%;
+	margin-right:3%;
+	margin-top: 1%;
+	background-color: var(--colorDescription);
+	border-radius:2vh;
+	text-align:justify;
+	color: var(--colorDescriptionText);
+	padding: 1vmin;
+	font-size: 80%;	
+	font-weight: 300;
 }
 
-.label:hover
-{color:#f8aeb2;}
+#embedyt{
+	width:100%;
+	min-height:40vh;
+}
 
-.textDescription{
-	font-weight:light;
-	margin:5%;
-	margin-top:5%;
-	margin-bottom:7%;
-	border-style: solid;
-	border-width:7px;
-	border-color:#3053a3;
-	border-spacing: 7px;
-	border-radius: 20%;
-	background-color:#3053a3;
+.frame{
+	
+	text-align:center;
 }
 
 /* FIN GROUPE G ET H 
@@ -786,7 +802,7 @@ margin-left:5%;
 @media only screen and (orientation: portrait) {
 	
 	html, body {
-		font-size: 3.5vmin;
+		font-size: 3.4vmin;
 	}
 	
 	#botMenu{

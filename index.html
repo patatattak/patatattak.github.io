@@ -23,6 +23,7 @@
 			    <li><a href="#" id="menuProjet">Le projet</a></li>
 			    <li><a href="#" id="menuPartenaire">Les partenaires</a></li>
 			    <li><a href="#" id="menuCredit">Crédits</a></li>
+				<li><a href="https://www.youtube.com/playlist?list=PLaZyFRKt5cDvyKA86iGCBsk0f9DR82FIN" target="_blank" id="menuCredit">La playlist</a></li>
 			  </ul>
 			</div>
 
@@ -364,9 +365,11 @@
 				<div id="backZone">Retour</div>
 				<div id="studentPage"></div>				
 				<div id="projectPage">
-					<h1 class="b">Le Projet</h1>
-						<img src="images/projectPage_Carte.png" alt="Carte en fond" class="BgImg">
-					
+					<div class="ethno">
+						<img id="projetLogoEthno" src="images\Logos partenaires\ethno_WHITE.png">
+						</br>
+						</br>
+					</div>
 						
 						<h3 class="right">— Ethno France, c’est quoi ?</h3>
 							<p><span>Un événement international dédié aux musiques du monde et à l’échange interculturel entre musiciens.</span></br></br>
@@ -392,6 +395,10 @@ Tous les musiciens trouvent une place dans l’interprétation finale. Par exemp
 intervalles en ¼ de ton et que le musicien joue de l’accordéon diatonique avec des intervalles fixes, à charge du leader
 artistique de trouver une solution musicale adaptée pour l’intégrer dans la transcription finale.
 							</p>
+							<div class="textDescription frame">
+							Le processus de transmission Ethno :</br></br>
+							<iframe id="embedyt" src="https://www.youtube.com/embed/a4JSDJCTdrg"></iframe>
+							</div>
 						<h3 class="left">— Quelles sont les actions auprès du public ?</h3>
 							<p><span>Des interventions dans différentes structures : centre de loisirs, EPAHD, écoles...</span></br></br>
 							<span>3 concerts uniques :</span></br>
@@ -402,9 +409,14 @@ artistique de trouver une solution musicale adaptée pour l’intégrer dans la 
 							</ul>
 							</p>
 							
+							<div class="textDescription frame">
+							Le concert EthnoFrance 2022 au Centre Culturel J. Brel de Villebon/Yvette :</br></br>
+							<iframe id="embedyt" src="https://www.youtube.com/embed/rPLmkqSlJXg"></iframe>
+							</div>
+							
 				</div>						
 				<div id="partnersPage">
-					<div id="ethno">
+					<div class="ethno">
 						<img id="logoEthno" src="images\Logos partenaires\ethno_WHITE.png">
 						<p>Une rencontre portée par</p>
 					</div>
@@ -516,7 +528,7 @@ artistique de trouver une solution musicale adaptée pour l’intégrer dans la 
 					
 			
 
-		<h1>Crédits</h1>
+		<h2>Crédits</h2>
 		
 					<p>
 						Site créé en partenariat avec la MJC Boby Lapointe de Villebon/Yvette et le Lycée International de Palaiseau Paris-Saclay.
@@ -595,7 +607,6 @@ artistique de trouver une solution musicale adaptée pour l’intégrer dans la 
 	//fonction d'initialisation appelée au chargement de la page
 	function init() {
 		backZone.onpointerup = backInfosUp;
-		document.onkeydown = test;
 		window.onorientationchange = (event) => {
 			setRealSize();
 		};
@@ -631,8 +642,6 @@ artistique de trouver une solution musicale adaptée pour l’intégrer dans la 
 			img.onpointerup = avatarUp;
 			div.appendChild(img);
 			botMenu.appendChild(div);
-			console.log(jsonData.students[i].familyName);
-			console.log(jsonData.students[i].countryCode);
 			land = document.getElementById(jsonData.students[i].countryCode);
 			
 			if(!land.classList.contains("student")){
@@ -676,7 +685,6 @@ artistique de trouver une solution musicale adaptée pour l’intégrer dans la 
 	
 	function toggleDarkLight(){
 		if(styleSheet.href.includes("styleLight.css")){
-		console.log("toDark");
 			styleSheet.href = "css/style.css";
 			document.getElementById("logoEthno").src = "images/Logos partenaires/ethno_WHITE.png";
 			document.getElementById("logoMJC").src = "images/Logos partenaires/mjc_WHITE.png";
@@ -690,9 +698,9 @@ artistique de trouver une solution musicale adaptée pour l’intégrer dans la 
 			document.getElementById("creditlogoLIPPS").src = "images/Logos partenaires/lipps_WHITE.png";
 			document.getElementById("creditlogoMJC").src = "images/Logos partenaires/mjc_WHITE.png";
 			document.getElementById("logo").src = "images/ethno_YELLOW.png";
+			document.getElementById("projetLogoEthno").src = "images/Logos partenaires/ethno_WHITE.png";
 		}
 		else{
-		console.log("toLight");	
 			
 			styleSheet.href = "css/styleLight.css";
 			document.getElementById("logoEthno").src = "images/Logos partenaires/ethno_BLACK.png";
@@ -707,6 +715,7 @@ artistique de trouver une solution musicale adaptée pour l’intégrer dans la 
 			document.getElementById("creditlogoLIPPS").src = "images/Logos partenaires/lipps_BLACK.png";
 			document.getElementById("creditlogoMJC").src = "images/Logos partenaires/mjc_BLACK.png";
 			document.getElementById("logo").src = "images/ethno_BLUE.png";
+			document.getElementById("projetLogoEthno").src = "images/Logos partenaires/ethno_BLACK.png";
 		}
 	}
 	
@@ -864,6 +873,7 @@ artistique de trouver une solution musicale adaptée pour l’intégrer dans la 
 			linkDiv.appendChild(linkLabel);
 			let linkText = document.createElement("div");
 			linkText.classList.add("textDescription");
+			linkText.classList.add("frame");
 			linkText.innerHTML = student.linkDescription + "</br>";
 			linkDiv.appendChild(linkText);
 			let embedyt = document.createElement("iframe");
@@ -1287,50 +1297,7 @@ artistique de trouver une solution musicale adaptée pour l’intégrer dans la 
 	}
 	
 	
-	function test(e){
-		if(e.key == "e"){
-			if(state != "project"){
-				displayProjectPage();
-			}
-			else{
-				hidePanel();
-				if(avatarsOnCountry.classList.contains("visible")){
-					state = "country";
-				}
-				else{
-					state = "nav";
-				}
-			}
-		}		
-		if(e.key == "p"){
-			if(state != "partners"){
-				displayPartnersPage();
-			}
-			else{
-				hidePanel();
-				if(avatarsOnCountry.classList.contains("visible")){
-					state = "country";
-				}
-				else{
-					state = "nav";
-				}
-			}
-		}		
-		if(e.key == "c"){
-			if(state != "credits"){
-				displayCreditsPage();
-			}
-			else{
-				hidePanel();
-				if(avatarsOnCountry.classList.contains("visible")){
-					state = "country";
-				}
-				else{
-					state = "nav";
-				}
-			}
-		}		
-	}
+	
 	
 	function openNav() {
 		if(vertical.classList.contains("active")){
