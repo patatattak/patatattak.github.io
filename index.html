@@ -22,9 +22,8 @@
 			  <ul>
 			    <li><a href="#" id="menuProjet">Le projet</a></li>
 			    <li><a href="#" id="menuPartenaire">Les partenaires</a></li>	
-				<li><a href="#" id="menuBilletterie">Billetterie concerts</a></li>				
+				<li><a href="#" id="menuTickets">Billetterie concerts</a></li>				
 				<li></br></li>
-				<li><a href="https://www.youtube.com/playlist?list=PLaZyFRKt5cDvyKA86iGCBsk0f9DR82FIN" target="_blank">La playlist</a></li>
 				<li><a href="https://www.mjcvillebon.org/ethno-france/" target="_blank" >Plus d'infos</a></li>
 				<li><a href="https://www.facebook.com/ethnofrance/" target="_blank" class="socialLogo"> 
 				
@@ -40,7 +39,8 @@
 	<circle
 		cx="390.476" cy="121.524" r="30.23"/>
 </svg>
-				</a></li>
+				</a></li>				
+				<li><a href="https://www.youtube.com/playlist?list=PLaZyFRKt5cDvyKA86iGCBsk0f9DR82FIN" target="_blank">La playlist</a></li>
 				<li></br></li>
 				<li><a href="#" id="menuCredit">Crédits</a></li>
 			  </ul>
@@ -382,7 +382,89 @@
 			</div>
 			<div id="sidePanel">
 				<div id="backZone">Retour</div>
-				<div id="studentPage"></div>				
+				<div id="studentPage"></div>
+				<div id="ticketsPage">
+				
+				<div id="photoConcert">
+				<img src="images/concertEthno.jpg">
+				</div>
+				<h3>3 concerts uniques :</h3>
+				<div class="concertDiv">
+				<div class="date">
+					<div class="day">
+						09
+					</div>
+					<div class="month">
+						mars
+					</div>
+				</div>
+				<div class="infosConcert">	
+					<div class="location">
+						Telecom Paris
+					</div>
+					<div class="city">
+						Palaiseau
+					</div>
+					<div class="hour">
+						20h30
+					</div>
+					<div class="ticketLink">
+						<a href="https://www.helloasso.com/associations/mjc-boby-lapointe/evenements/ethno-france-2023-telecom-paris" target="_blank">Billetterie (prix libre)</a>
+					</div>
+				</div>	
+				</div>
+				
+				<div class="concertDiv">
+				<div class="date">
+					<div class="day">
+						10
+					</div>
+					<div class="month">
+						mars
+					</div>
+				</div>
+				<div class="infosConcert">	
+					<div class="location">
+						Centre Culturel J. Brel
+					</div>
+					<div class="city">
+						Villebon/Yvette
+					</div>
+					<div class="hour">
+						19h30
+					</div>
+					<div class="ticketLink">
+						<a href="https://www.mjcvillebon.org/%C3%A9v%C3%A8nement/ethno-france-2023/?instance_id=907" target="_blank">Billetterie (5€)</a>
+					</div>
+				</div>	
+				</div>
+				
+				<div class="concertDiv">
+				<div class="date">
+					<div class="day">
+						11
+					</div>
+					<div class="month">
+						mars
+					</div>
+				</div>
+				<div class="infosConcert">	
+					<div class="location">
+						Paul B.
+					</div>
+					<div class="city">
+						Massy
+					</div>
+					<div class="hour">
+						20h30
+					</div>
+					<div class="ticketLink">
+						<a href="https://billetterie.paul-b.fr/evenement/11-03-2023-20-30-ethno-france" target="_blank">Billetterie (5€)</a>
+					</div>
+				</div>	
+				</div>
+				
+				</div>				
 				<div id="projectPage">
 					<div class="ethno">
 						<img id="projetLogoEthno" src="images\Logos partenaires\ethno_WHITE.png">
@@ -584,6 +666,7 @@ artistique de trouver une solution musicale adaptée pour l’intégrer dans la 
 	const sidePanel = document.getElementById("sidePanel");
 	const backZone = document.getElementById("backZone");
 	const studentPage = document.getElementById("studentPage");
+	const ticketsPage = document.getElementById("ticketsPage");
 	const projectPage = document.getElementById("projectPage");
 	const partnersPage = document.getElementById("partnersPage");
 	const creditsPage = document.getElementById("creditsPage");
@@ -751,6 +834,19 @@ artistique de trouver une solution musicale adaptée pour l’intégrer dans la 
 		displayPanel();
 	}
 	
+	function displayTicketsPage(){
+		if(state != "tickets"){
+			studentPage.innerHTML = "";			
+			studentPage.classList.remove("visible");
+			partnersPage.classList.remove("visible");			
+			creditsPage.classList.remove("visible");
+			projectPage.classList.remove("visible");
+			ticketsPage.classList.add("visible");
+			state = "tickets";
+			displayPanel();
+		}				
+	}
+	
 	function displayProjectPage(){
 		if(state != "project"){
 			studentPage.innerHTML = "";			
@@ -758,6 +854,7 @@ artistique de trouver une solution musicale adaptée pour l’intégrer dans la 
 			partnersPage.classList.remove("visible");
 			creditsPage.classList.remove("visible");
 			projectPage.classList.add("visible");
+			ticketsPage.classList.remove("visible");
 			state = "project";
 			displayPanel();
 		}				
@@ -770,6 +867,7 @@ artistique de trouver une solution musicale adaptée pour l’intégrer dans la 
 			partnersPage.classList.add("visible");
 			creditsPage.classList.remove("visible");
 			projectPage.classList.remove("visible");
+			ticketsPage.classList.remove("visible");
 			state = "partners";
 			displayPanel();
 		}				
@@ -782,6 +880,7 @@ artistique de trouver une solution musicale adaptée pour l’intégrer dans la 
 			partnersPage.classList.remove("visible");
 			creditsPage.classList.add("visible");
 			projectPage.classList.remove("visible");
+			ticketsPage.classList.remove("visible");
 			state = "credits";
 			displayPanel();
 		}				
@@ -1335,6 +1434,16 @@ artistique de trouver une solution musicale adaptée pour l’intégrer dans la 
 	let creditMenuButton = document.getElementById("menuCredit");
 	creditMenuButton.onpointerup = Ccredit;
 
+
+	function Ttickets(){
+		if(state != "tickets"){
+			displayTicketsPage();
+		}		
+		closeNav();
+	}
+
+	let ticketsMenuButton = document.getElementById("menuTickets");
+	ticketsMenuButton.onpointerup = Ttickets;
 
 	function Ccredit(){
 		if(state != "credits"){

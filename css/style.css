@@ -429,6 +429,72 @@ html, body {
 	display:flex;
 }
 
+#ticketsPage{
+	background-color: var(--colorStudentInfos);
+	color : var(--colorButtonHover);
+	height:93%;
+	width:100%;
+	overflow-y:auto;
+	overflow-x:hidden;
+	display: none;
+	text-align:center;
+}
+
+#ticketsPage.visible{
+	display:block;
+}
+
+#photoConcert{	
+	padding-top:2vmin;
+	display:flex;
+	justify-content:center;
+	width:100%;
+}
+
+#photoConcert img{
+	width:50%;	
+	border-radius: 2vmin;
+}
+
+.concertDiv{
+	display:flex;
+	flex-direction:row;
+	justify-content:flex-start;
+	padding-left: 20%;
+	padding-bottom: 3vmin;
+	width: 70%;
+}
+
+.day{
+	font-weight:700;
+	font-size:200%;
+}
+
+.date{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+}
+
+.location{
+	font-weight:500;
+	font-size:120%;
+	
+}
+
+.infosConcert{
+	padding-left:3vmin;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:flex-start;
+	text-align:left;	
+}
+
+.ticketLink a{
+	color:#EF3C23;
+}
 
 /* GROUPE A et B (css), c'est cet id qui vous concerne, vous aurez certainement à rajouter d'autres ids ou class pour gérer l'affichage des éléments de votre page
 
