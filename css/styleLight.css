@@ -44,7 +44,7 @@ html, body {
 	background-color: black;
 	font-family: "Montserrat", sans-serif;
 	font-weight: 400;
-	font-size: 2.8vmin;
+	font-size: 3.1vmin;
 }
 
 
@@ -93,6 +93,12 @@ html, body {
   border-radius: 0 var(--mainMargin) var(--mainMargin) 0;
 }
 
+#socialMedias{
+	display:flex;
+	flex-direction:row;
+	justify-content:flex-start;
+}
+
 .socialLogo{
 	width:1em;
 	fill:#818181;
@@ -104,10 +110,9 @@ html, body {
 }
 
 .vertical a {
-  padding: 3%;
-  padding-bottom: 5%;
+  padding: 1.5vmin;
   text-decoration: none;
-  font-size: 85%;
+  font-size: 115%;
   color: #818181;
   display: block;
   transition: 0.3s;
@@ -169,7 +174,7 @@ html, body {
 
 #mainZone{
 	width:100%;
-	background-color: yellow;
+	background-color: var(--colorMapSea);
 	height: calc(100% - var(--topMenuHeight) - var(--botMenuHeight));
 	display: flex;
 	flex-direction: column;
@@ -806,7 +811,7 @@ le css vous concernant est à partir de là jusqu'au prochain commentaire
 	color: var(--colorLabelText);
 }
 .textDescription{
-	width: calc(94% - 2vmin);
+	width: calc(94% - 4vmin);
 	height: fit-content;
 	margin-left:3%;
 	margin-right:3%;
@@ -815,7 +820,7 @@ le css vous concernant est à partir de là jusqu'au prochain commentaire
 	border-radius:2vh;
 	text-align:justify;
 	color: var(--colorDescriptionText);
-	padding: 1vmin;
+	padding: 2vmin;
 	font-size: 80%;	
 	font-weight: 300;
 }
@@ -878,7 +883,7 @@ le css vous concernant est à partir de là jusqu'au prochain commentaire
 @media only screen and (orientation: portrait) {
 	
 	html, body {
-		font-size: 3.4vmin;
+		font-size: 3.6vmin;
 	}
 	
 	#botMenu{
