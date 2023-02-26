@@ -83,22 +83,31 @@ html, body {
 
 .vertical {
   height: calc(100% - 2 * var(--mainMargin) - var(--topMenuHeight) - var(--botMenuHeight));
-  min-width: 20%;
+  min-width: 25%;
   position: fixed;
   z-index: 1;
   top: calc(var(--topMenuHeight) + var(--mainMargin));
   left: -50%;
   background-color: #e8e8e8;
-  transition: left 0.5s ease;  
+  transition: left 0.4s ease;  
   border-radius: 0 var(--mainMargin) var(--mainMargin) 0;
 }
 
+.socialLogo{
+	width:1em;
+	fill:#818181;
+}
+
+.socialLogo:hover{
+	width:1em;
+	fill:#111;
+}
 
 .vertical a {
-  padding: 2%;
-  padding-top: 15%;
+  padding: 3%;
+  padding-bottom: 5%;
   text-decoration: none;
-  font-size: 115%;
+  font-size: 85%;
   color: #818181;
   display: block;
   transition: 0.3s;
