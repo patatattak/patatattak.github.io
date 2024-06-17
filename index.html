@@ -24,17 +24,19 @@
 
 <script>
 var mapZone;
-var lands;
-var svgMap;
 var svgObject;
 var svgDoc;
+var svgMap;
+var lands;
 
 function loaded(){
+	mapZone = document.getElementById("mapZone");
 	svgObject = document.getElementById("svgObject");
 	svgDoc = svgObject.contentDocument;
 	console.log(svgDoc);
 	svgMap = svgDoc.getElementById("svgMap");
 	console.log(svgMap);
+	lands = svgDoc.getElementsByClassName("land");
 }
 </script>
 
