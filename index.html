@@ -27,15 +27,15 @@ var mapZone;
 var lands;
 var svgMap;
 var svgObject;
+var svgDoc;
 
 function loaded(){
 	svgObject = document.getElementById("svgObject");
-	console.log(svgObject.contentDocument);
-	svgMap = document.getElementById("svgMap");
+	svgDoc = svgObject.contentDocument;
+	console.log(svgDoc);
+	svgMap = svgDoc.getElementById("svgMap");
 	console.log(svgMap);
 }
-
-
 </script>
 
 </body>
