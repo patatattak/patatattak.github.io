@@ -1,0 +1,26 @@
+:root{
+	--colorLoader: #F9C92A;
+	--colorButton: rgba(255, 255, 255, 0.7);
+	--colorButtonHover: white;
+	--topMenuHeight: 5vh;
+	--avatarSize: 8.2vh;
+	--botMenuHeight: calc(var(--avatarSize) * (var(--numOfRows) + 0.15));
+	--mainMargin:1vmin;
+}
+
+html, body {
+	touch-action:none;
+	user-select: none;
+	margin: 0; 
+	padding: 0;
+	width:100vw;
+	height: 100vh; 
+	position: relative;
+	overflow-y: hidden;
+	overflow-x: hidden;	
+	background-color: black;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 400;
+	font-size: 3vmin;
+	color: var(--colorPageText);
+}
