@@ -17,6 +17,7 @@
 <body>
   
 <div class="container">
+	<div id="loader">
 	<div id="mapZone">
 		<object id="svgObject" type="image/svg+xml" data="world.svg" onload="loaded();"></object>
 	</div>
@@ -24,6 +25,7 @@
 
 <script>
 
+const loader = document.getElementById("loader");
 var mapZone;
 var svgObject;
 var svgDoc;
@@ -43,6 +45,7 @@ function loaded(){
 	console.log(lands);
 
 	svgMap.onwheel = docWheel;
+	loader.classList.add("fadeOut");
 })
 }
 </script>
