@@ -116,3 +116,8 @@ function verifyViewBoxMove(){
 		currentViewBox.top = fullViewBox.top + fullViewBox.height - currentViewBox.height;
 	}
 }
+
+function getViewBoxString(){
+	let newView = "" + currentViewBox.left + " " + currentViewBox.top + " " + currentViewBox.width + " " + currentViewBox.height;
+	return newView;
+}
