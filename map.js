@@ -1,3 +1,15 @@
+const fullViewBox = {
+	left: -10,
+	top: -10,
+	width: 1027,
+	height: 670
+};
+const zoomStrength = 0.3;
+
+var currentViewBox = Object.assign({}, fullViewBox);
+var prevVB;
+
+
 function docWheel(e){
 	if(e.deltaY < 0){    
 		zoomIn();
