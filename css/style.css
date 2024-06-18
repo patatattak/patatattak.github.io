@@ -35,3 +35,9 @@ html, body {
 	top:-100%;
 	transition:1s;
 }
+
+#topMenu{
+	height:10%;
+	width:100%;
+	background-color:red;	
+}
