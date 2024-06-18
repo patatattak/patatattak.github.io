@@ -13,7 +13,7 @@ function zoomIn(){
 			x: currentViewBox.left + currentViewBox.width / 2,
 			y: currentViewBox.top + currentViewBox.height / 2
 		};
-		let rect = mapImage.getBoundingClientRect();
+		let rect = svgMap.getBoundingClientRect();
 		let ratio = rect.width / rect.height;
 		console.log(ratio);
 		let newWidth = currentViewBox.width - currentViewBox.width * zoomStrength;
@@ -55,7 +55,7 @@ function zoomOut(){
 			x: currentViewBox.left + currentViewBox.width / 2,
 			y: currentViewBox.top + currentViewBox.height / 2
 		};
-		let rect = mapImage.getBoundingClientRect();
+		let rect = svgMap.getBoundingClientRect();
 		let ratio = rect.width / rect.height;
 		console.log(ratio);
 		let newWidth = currentViewBox.width + currentViewBox.width * zoomStrength;
@@ -88,3 +88,18 @@ function zoomOut(){
 		});		
 	}
 }	
+
+function verifyViewBoxMove(){
+	if(currentViewBox.left < fullViewBox.left){
+		currentViewBox.left = fullViewBox.left;
+	}
+	if(currentViewBox.top < fullViewBox.top){
+		currentViewBox.top = fullViewBox.top;
+	}
+	if(currentViewBox.left > fullViewBox.left + fullViewBox.width - currentViewBox.width){
+		currentViewBox.left = fullViewBox.left + fullViewBox.width - currentViewBox.width;
+	}
+	if(currentViewBox.top > fullViewBox.top + fullViewBox.height - currentViewBox.height){
+		currentViewBox.top = fullViewBox.top + fullViewBox.height - currentViewBox.height;
+	}
+}
