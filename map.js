@@ -7,6 +7,7 @@ const fullViewBox = {
 const zoomStrength = 0.3;
 
 var currentViewBox = Object.assign({}, fullViewBox);
+console.log(currentViewBox);
 var prevVB;
 
 
