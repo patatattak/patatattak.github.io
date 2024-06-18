@@ -23,11 +23,19 @@
 </div>
 
 <script>
+const fullViewBox = {
+	left: -10,
+	top: -10,
+	width: 1027,
+	height: 670
+};
 var mapZone;
 var svgObject;
 var svgDoc;
 var svgMap;
 var lands;
+var currentViewBox;
+var prevVB;
 
 function loaded(){
 	mapZone = document.getElementById("mapZone");
@@ -38,6 +46,10 @@ function loaded(){
 	console.log(svgMap);
 	lands = svgDoc.getElementsByClassName("land");
 	console.log(lands);
+
+	currentViewBox = Object.assign({}, fullViewBox);
+
+	svgMap.onwheel = docWheel;
 }
 </script>
 
