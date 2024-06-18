@@ -44,6 +44,17 @@ function loaded(){
 	console.log(lands);
 
 	svgMap.onwheel = docWheel;
+	var pz = new PinchZoom.default(svgMap, {
+		draggableUnzoomed: false,
+		minZoom: 1,
+		onZoomStart: function(object, event){
+			// Do something on zoom start
+			// You can use any Pinchzoom method by calling object.method()
+		},
+		onZoomEnd: function(object, event){
+			// Do something on zoom end
+    }
+})
 }
 </script>
 
