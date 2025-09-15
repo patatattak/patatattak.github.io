@@ -66,7 +66,7 @@ const botPhoto = document.getElementById("botPhoto");
 var images = new Array();
 var indexTop = -1;
 var indexBot = -1;
-var fontSize = parseInt(window.getComputedStyle(main).fontSize);
+
 
 var heart = new Image();
 heart.src = "data/heart.svg";
@@ -74,8 +74,11 @@ var bubbles = 8;
 var spawnc = document.getElementById("spawncontainer");
 var width = spawnc.width = window.innerWidth;
 var height = spawnc.height = window.innerHeight;
+var fontSize = parseInt(window.getComputedStyle(main).fontSize);
 var spawnctx = spawnc.getContext("2d");
 window.addEventListener('resize', function(event) {
+	var width = spawnc.width = window.innerWidth;
+var height = spawnc.height = window.innerHeight;
     fontSize = parseInt(window.getComputedStyle(main).fontSize);
 }, true);
 
