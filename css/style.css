@@ -1,7 +1,17 @@
 body{
 	font-family: 'Love Ya Like A Sister';
-	font-size: 4vw;	
-	color: #FFE5EC;
+	font-size: min(4.5vw, 4.5vh);	
+	word-spacing: 0.2ch;
+	color: #FFE5EC;	
+	text-align: center;
+}
+
+#spawncontainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: hidden;
 }
 
 #loaderScreen{
@@ -20,12 +30,13 @@ body{
 
 #loaderScreen.fadeOut{
 	top:-100%;
-	transition:0.8s;
-	transition-delay: 0s;
+	opacity:0;
+	transition:0.5s;
+	transition-delay: 1s;
 }
 
 ion-icon {
-	font-size: 96px;
+	font-size: min(7vw, 7vh);
 	animation: breath 1s ease 0.5s infinite alternate;
 }
 
@@ -41,7 +52,7 @@ ion-icon {
 
 #loadPoints {
 	padding-top:10%;
-	width: 60px;
+	width: min(4vw, 4vh);
 	aspect-ratio: 4;
 	background: radial-gradient(circle closest-side,#FFE5EC 90%,#0000) 0/calc(100%/3) 100% space;
 	clip-path: inset(0 100% 0 0);
@@ -57,10 +68,18 @@ ion-icon {
 	top:0;
 	display:flex;
 	flex-direction:column;
-	justify-content: center;
+	justify-content: space-around;
 	align-items:center;
 	width:100%;
 	height:100%;
+}
+
+#intro div{
+	width:90%;
+}
+
+span{
+	font-size: min(3vw, 3vh);
 }
 
 #intro.fadeOut{
@@ -93,8 +112,8 @@ ion-icon {
 }
 
 #photosZone{
-	max-width:90%;	
-	max-height:60%;
+	max-width:95%;	
+	max-height:80%;
 	aspect-ratio: 16 / 9;
 }
 
@@ -136,7 +155,7 @@ ion-icon {
 }
 
 #audioZone{
-	width:60%;
+	width: min(95%, 1280px);
 	height:10%;
 	display:flex;
 	flex-direction:column;

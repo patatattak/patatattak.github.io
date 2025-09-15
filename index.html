@@ -15,21 +15,31 @@
 </head>
 
 <body onload="loaded();">
-  
+<canvas id="spawncontainer"></canvas>
 <div class="container" >
 	<div id="loaderScreen">
 		<ion-icon name="heart-outline"></ion-icon>
 		<div id="loadPoints"></div>
 	</div>
 	<div id="intro">
-		Blab lbz zefljflz. zfkflzkfej.
-		zefjzmf
-		efzkfjzmkegjmzlj
-		zegzkjgkjm
+		<ion-icon name="heart-outline"></ion-icon>
+		<div>
+			Pour fêter votre mariage, j'ai cherché un truc original...<br>
+			<br>
+			Voici un son qui tente de représenter votre union, ainsi que quelques retouches d'une jolie photo de vous deux.<br>
+			<br>
+			Je vous souhaite le meilleur !<br>
+			<br>
+			<br>
+		Quentin
+		</div>
+		<div>
+			<span>Cliquez...</span>
+		</div>
 	</div>
 	<div id="main">
 		<div id="textZone">
-			Cliquer pour changer de style.
+			<span>Cliquez...</span>
 		</div>
 		<div id="photosZone">
 			<div id="photoFrame">
@@ -56,7 +66,66 @@ const botPhoto = document.getElementById("botPhoto");
 var images = new Array();
 var indexTop = -1;
 var indexBot = -1;
+var fontSize = parseInt(window.getComputedStyle(main).fontSize);
 
+var heart = new Image();
+heart.src = "data/heart.svg";
+var bubbles = 8;
+var spawnc = document.getElementById("spawncontainer");
+var width = spawnc.width = window.innerWidth;
+var height = spawnc.height = window.innerHeight;
+var spawnctx = spawnc.getContext("2d");
+window.addEventListener('resize', function(event) {
+    fontSize = parseInt(window.getComputedStyle(main).fontSize);
+}, true);
+
+function render(particles, spawnctx, width, height) {
+  requestAnimationFrame(() => render(particles, spawnctx, width, height));
+  spawnctx.clearRect(0, 0, width, height);
+  particles.forEach((p, i) => {
+    p.x += p.speed * Math.cos(p.rotation * Math.PI / 180);
+    p.y += p.speed * Math.sin(p.rotation * Math.PI / 180);
+    p.opacity -= 0.01;
+    p.speed *= p.friction;
+    p.radius *= p.friction;
+    p.yVel += p.gravity;
+    p.y += p.yVel;
+    if(p.opacity < 0 || p.radius < 0) {
+		particles.splice(i, 1);
+	}
+	spawnctx.globalAlpha = p.opacity;
+    spawnctx.drawImage(heart, 0, 0, 24, 24, p.x - p.radius / 2, p.y - p.radius / 2, p.radius, p.radius);
+  });
+  return spawnctx;
+}
+
+var r = (a, b, c) => parseFloat((Math.random() * ((a ? a : 1) - (b ? b : 0)) + (b ? b : 0)).toFixed(c ? c : 0));
+
+function spawn(event){
+  var mousex = event.clientX;
+  var mousey = event.clientY;
+  spawnctx.fillRect(mousex - (width / 2), mousey - (height / 2), width, height);
+  var particles = [];
+  var ratio = window.devicePixelRatio;
+  
+  for(var i = 0; i < bubbles; i++) {
+    particles.push({
+      x: mousex,
+      y: mousey,
+      radius: r(fontSize * 3, fontSize * 10),
+      rotation: r(0, 360, true),
+      speed: r(5, 10),
+      friction: 0.91,
+      opacity: r(0, 0.5, true),
+      yVel: 0,
+      gravity: 0.1
+    });
+  }
+  
+  render(particles, spawnctx, spawnc.width, spawnc.height);
+}
+
+document.onclick = spawn;
 
 function loaded(){
 	preloadPhotos();
