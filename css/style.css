@@ -1,6 +1,6 @@
 body{
 	font-family: 'Love Ya Like A Sister';
-	font-size:2em;	
+	font-size: 4vw;	
 	color: #FFE5EC;
 }
 
@@ -52,7 +52,7 @@ ion-icon {
 #intro{
 	background-color: #FB6F92;
 	position:absolute;
-	z-index:0;	
+	z-index:555;	
 	left:0;
 	top:0;
 	display:flex;
@@ -69,7 +69,7 @@ ion-icon {
 }
 
 #main{
-	background-color: red;
+	background-color: #FB6F92;
 	position:absolute;
 	z-index:-1;	
 	left:0;
@@ -82,14 +82,60 @@ ion-icon {
 	height:100%;
 }
 
-#photosZone{
-	background-color:blue;
+#textZone{
 	width:90%;
+	height:10%;
+	display:flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items:center;
+}
+
+#photosZone{
+	max-width:90%;	
+	max-height:60%;
+	aspect-ratio: 16 / 9;
+}
+
+#photoFrame{
+	position:relative;
+	max-height:720px;
+}
+
+#topPhoto{
+	max-width:100%;
+	max-height: 100%;
+	z-index:1;	
+	border-radius: 4vw;
+	opacity:1;
+	transition:1s;
+}
+
+#topPhoto.getBot{
+	opacity:0;
+	transition:1s;
+}
+
+
+#botPhoto{
+	position:absolute;
+	left:0;
+	top:0;
+	max-width:100%;
+	max-height: 100%;
+	z-index:0;	
+	border-radius: 4vw;
+	opacity:0;
+	transition:1s;
+}
+
+#botPhoto.getBot{
+	opacity:1;
+	transition:1s;
 }
 
 #audioZone{
-	background-color:green;
-	width:50%;
+	width:60%;
 	height:10%;
 	display:flex;
 	flex-direction:column;
@@ -99,6 +145,10 @@ ion-icon {
 
 audio{
 	width:100%;
+}
+
+audio::-webkit-media-controls-panel {
+	background-color: #FFB3C6;
 }
 
 audio::-webkit-media-controls-current-time-display,
@@ -121,4 +171,5 @@ audio::-webkit-media-controls-toggle-closed-captions-button {
 audio::-webkit-media-controls-fullscreen-button {
     display: none;
 }
+
 

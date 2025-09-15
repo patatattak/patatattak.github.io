@@ -11,6 +11,7 @@
 	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 	<link rel="stylesheet" href="css/font1.css">
+	<script src="data.js"></script>
 </head>
 
 <body onload="loaded();">
@@ -31,6 +32,10 @@
 			Cliquer pour changer de style.
 		</div>
 		<div id="photosZone">
+			<div id="photoFrame">
+				<img id="topPhoto" src="data\images\testLucieBenoit_style66_3.jpg"/>
+				<img id="botPhoto" src="data\images\testLucieBenoit_style07_4.jpg"/>
+			</div>
 		</div>
 		<div id="audioZone">
 			<audio controls controlslist="nodownload noplaybackrate">
@@ -45,16 +50,69 @@
 
 const loaderScreen = document.getElementById("loaderScreen");
 const intro = document.getElementById("intro");
+const main = document.getElementById("main");
+const topPhoto = document.getElementById("topPhoto");
+const botPhoto = document.getElementById("botPhoto");
+var images = new Array();
+var indexTop = -1;
+var indexBot = -1;
 
-intro.addEventListener("click", goMain);
 
 function loaded(){
-	
-	loaderScreen.classList.add("fadeOut");
+	preloadPhotos();
 }
 
 function goMain(){
 	intro.classList.add("fadeOut");
+	main.addEventListener("click", click);
+}
+
+function click(){
+	if(topPhoto.classList.contains("getBot")){
+		indexTop = getRandomIndex();
+		topPhoto.src = images[indexTop].src;
+		topPhoto.classList.remove("getBot");
+		botPhoto.classList.remove("getBot");
+	}	
+	else{
+		indexBot = getRandomIndex();
+		botPhoto.src = images[indexBot].src;
+		topPhoto.classList.add("getBot");
+		botPhoto.classList.add("getBot");
+	}
+	
+}
+
+function preloadPhotos(){
+	for (var i = 0; i < jsonData.images.length; i++) {
+		images[i] = new Image();
+		images[i].src = "data/images/" + jsonData.images[i];
+		console.log(jsonData.images[i]);
+	}
+	indexTop = getRandomIndex();
+	topPhoto.src = images[indexTop].src;
+	indexBot = getRandomIndex();
+	botPhoto.src = images[indexBot].src;
+	
+	intro.addEventListener("click", goMain);
+	loaderScreen.classList.add("fadeOut");
+}
+
+function getRandomIndex(){
+	var index = 0;
+	do{
+		index = Math.floor(Math.random() * images.length);
+	} while (index == indexTop || index == indexBot)
+	return index
+}
+
+
+function preload() {
+	for (var i = 0; i < preload.arguments.length; i++) {
+		images[i] = new Image()
+		images[i].src = preload.arguments[i]
+	}
+	
 }
 
 </script>
