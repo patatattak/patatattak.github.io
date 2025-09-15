@@ -1,8 +1,13 @@
-#loader{
+body{
+	font-family: Love Ya Like A Sister, serif;
+	font-size:2em;	
+	color: #FFE5EC;
+}
+
+#loaderScreen{
 	width:100%;
 	height:100%;
-	background-color: red;
-	color: var(--color3);
+	background-color: #FB6F92;
 	position:absolute;
 	z-index:999;	
 	left:0;
@@ -13,12 +18,53 @@
 	align-items:center;
 }
 
-#loader.fadeOut{
+#loaderScreen.fadeOut{
 	top:-100%;
 	transition:0.8s;
+	transition-delay: 1s;
 }
 
 ion-icon {
-	font-size: 64px;
-	stroke-dashoffset:10%;
+	font-size: 96px;
+	animation: breath 1s ease 0.5s infinite alternate;
+}
+
+@keyframes breath {
+	from {
+		animation-timing-function: ease-out;
+	  }
+	to {
+		transform: scale(1.4);
+		animation-timing-function: ease-in-out;
+	}
+}
+
+#loadPoints {
+	padding-top:10%;
+	width: 60px;
+	aspect-ratio: 4;
+	background: radial-gradient(circle closest-side,#FFE5EC 90%,#0000) 0/calc(100%/3) 100% space;
+	clip-path: inset(0 100% 0 0);
+	animation: pointsAnim 1s steps(4) infinite;
+}
+@keyframes pointsAnim {to{clip-path: inset(0 -34% 0 0)}}
+
+#intro{
+	background-color: #FB6F92;
+	position:absolute;
+	z-index:0;	
+	left:0;
+	top:0;
+	display:flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items:center;
+	width:100%;
+	height:100%;
+}
+
+.love-ya-like-a-sister-regular {
+  font-family: "Love Ya Like A Sister", cursive;
+  font-weight: 400;
+  font-style: normal;
 }

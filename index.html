@@ -10,24 +10,35 @@
 	<link rel="stylesheet" id="styleSheet" href="css/style.css">
 	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister" rel="stylesheet">
 </head>
 
 <body onload="loaded();">
   
 <div class="container" >
-	<div id="loader">
+	<div id="loaderScreen">
 		<ion-icon name="heart-outline"></ion-icon>
+		<div id="loadPoints"></div>
+	</div>
+	<div id="intro">
+		Blab lbz zefljflz. zfkflzkfej.
+		zefjzmf
+		efzkfjzmkegjmzlj
+		zegzkjgkjm
 	</div>
 	
 </div>
 
 <script>
 
-const loader = document.getElementById("loader");
+const loaderScreen = document.getElementById("loaderScreen");
 
 
 function loaded(){
-	//loader.classList.add("fadeOut");
+	
+	loaderScreen.classList.add("fadeOut");
 }
 
 </script>
