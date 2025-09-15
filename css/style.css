@@ -69,7 +69,7 @@ ion-icon {
 }
 
 #main{
-	background-color: #FB6F92;
+	background-color: black;
 	position:absolute;
 	z-index:-1;	
 	left:0;
