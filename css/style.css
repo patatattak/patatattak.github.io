@@ -21,7 +21,7 @@ body{
 #loaderScreen.fadeOut{
 	top:-100%;
 	transition:0.8s;
-	transition-delay: 1s;
+	transition-delay: 0s;
 }
 
 ion-icon {
