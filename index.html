@@ -26,17 +26,35 @@
 		efzkfjzmkegjmzlj
 		zegzkjgkjm
 	</div>
+	<div id="main">
+		<div id="textZone">
+			Cliquer pour changer de style.
+		</div>
+		<div id="photosZone">
+		</div>
+		<div id="audioZone">
+			<audio controls controlslist="nodownload noplaybackrate">
+			   <source src="data/mashup_ff_dion.mp3">
+			</audio>
+		</div>
+	</div>
 	
 </div>
 
 <script>
 
 const loaderScreen = document.getElementById("loaderScreen");
+const intro = document.getElementById("intro");
 
+intro.addEventListener("click", goMain);
 
 function loaded(){
 	
 	loaderScreen.classList.add("fadeOut");
+}
+
+function goMain(){
+	intro.classList.add("fadeOut");
 }
 
 </script>

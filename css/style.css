@@ -63,8 +63,62 @@ ion-icon {
 	height:100%;
 }
 
-.love-ya-like-a-sister-regular {
-  font-family: "Love Ya Like A Sister", cursive;
-  font-weight: 400;
-  font-style: normal;
+#intro.fadeOut{
+	top:-100%;
+	transition:0.8s;
 }
+
+#main{
+	background-color: red;
+	position:absolute;
+	z-index:-1;	
+	left:0;
+	top:0;
+	display:flex;
+	flex-direction:column;
+	justify-content: space-between;
+	align-items:center;
+	width:100%;
+	height:100%;
+}
+
+#photosZone{
+	background-color:blue;
+	width:90%;
+}
+
+#audioZone{
+	background-color:green;
+	width:50%;
+	height:10%;
+	display:flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items:center;
+}
+
+audio{
+	width:100%;
+}
+
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+    display: none;
+}
+
+audio::-webkit-media-controls-play-button {
+    transform: scale(2, 2);
+}
+
+audio::-webkit-media-controls-mute-button {
+    transform: scale(2, 2);
+}
+
+audio::-webkit-media-controls-toggle-closed-captions-button {
+    display: none;
+}
+
+audio::-webkit-media-controls-fullscreen-button {
+    display: none;
+}
+
