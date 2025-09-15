@@ -7,4 +7,18 @@
 	z-index:999;	
 	left:0;
 	top:0;
+	display:flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items:center;
+}
+
+#loader.fadeOut{
+	top:-100%;
+	transition:0.8s;
+}
+
+ion-icon {
+	font-size: 64px;
+	stroke-dashoffset:10%;
 }
